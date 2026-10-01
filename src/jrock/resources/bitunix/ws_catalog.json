@@ -1,0 +1,1097 @@
+{
+  "balance": {
+    "name": "balance",
+    "source": "https://www.bitunix.com/api-docs/futures/websocket/private/Balance%20Channel.html",
+    "private": true,
+    "request_parameters": [],
+    "push_parameters": [
+      {
+        "name": "ch",
+        "type": "String",
+        "description": "Channel name: balance"
+      },
+      {
+        "name": "ts",
+        "type": "Int64",
+        "description": "Timestamp"
+      },
+      {
+        "name": "data",
+        "type": "<Object>",
+        "description": ""
+      },
+      {
+        "name": ">coin",
+        "type": "String",
+        "description": "Coin"
+      },
+      {
+        "name": ">available",
+        "type": "String",
+        "description": "Available"
+      },
+      {
+        "name": ">frozen",
+        "type": "String",
+        "description": "frozen = isolationFrozen + crossFrozen"
+      },
+      {
+        "name": ">isolationFrozen",
+        "type": "String",
+        "description": "Freeze on a per warehouse basis"
+      },
+      {
+        "name": ">crossFrozen",
+        "type": "String",
+        "description": "Full warehouse entrusted freeze"
+      },
+      {
+        "name": ">margin",
+        "type": "String",
+        "description": "Margin"
+      },
+      {
+        "name": ">isolationMargin",
+        "type": "String",
+        "description": "Warehouse by warehouse margin"
+      },
+      {
+        "name": ">crossMargin",
+        "type": "String",
+        "description": "Full warehouse margin"
+      },
+      {
+        "name": ">expMoney",
+        "type": "String",
+        "description": "Experience money"
+      }
+    ],
+    "description": "Balance",
+    "push_example": null,
+    "notes": ""
+  },
+  "position": {
+    "name": "position",
+    "source": "https://www.bitunix.com/api-docs/futures/websocket/private/Position%20Channel.html",
+    "private": true,
+    "request_parameters": [],
+    "push_parameters": [
+      {
+        "name": "ch",
+        "type": "String",
+        "description": "Channel name: position"
+      },
+      {
+        "name": "ts",
+        "type": "Int64",
+        "description": "Timestamp"
+      },
+      {
+        "name": "data",
+        "type": "<Object>",
+        "description": "Subscription data"
+      },
+      {
+        "name": ">event",
+        "type": "String",
+        "description": "OPEN/UPDATE/CLOSE"
+      },
+      {
+        "name": ">positionId",
+        "type": "String",
+        "description": "Position id"
+      },
+      {
+        "name": ">marginMode",
+        "type": "String",
+        "description": "ISOLATION/CROSS"
+      },
+      {
+        "name": ">positionMode",
+        "type": "String",
+        "description": "ONE_WAY/HEDGE"
+      },
+      {
+        "name": ">side",
+        "type": "String",
+        "description": "SHORT/LONG"
+      },
+      {
+        "name": ">leverage",
+        "type": "String",
+        "description": "Leverage"
+      },
+      {
+        "name": ">margin",
+        "type": "String",
+        "description": "Margin"
+      },
+      {
+        "name": ">ctime",
+        "type": "String",
+        "description": "Create time"
+      },
+      {
+        "name": ">qty",
+        "type": "String",
+        "description": "Open position size"
+      },
+      {
+        "name": ">symbol",
+        "type": "String",
+        "description": "Symbol"
+      },
+      {
+        "name": ">realizedPNL",
+        "type": "String",
+        "description": "Realized PnL excluding funding and transaction fee"
+      },
+      {
+        "name": ">unrealizedPNL",
+        "type": "String",
+        "description": "Unrealized PnL"
+      },
+      {
+        "name": ">funding",
+        "type": "String",
+        "description": "Total funding fee during the position"
+      },
+      {
+        "name": ">fee",
+        "type": "String",
+        "description": "Deducted transaction fees during the position"
+      }
+    ],
+    "description": "Subscribe position channel. Pushed when open/close orders created, filled, canceled. Position WS lacks liqPrice and avgOpenPrice; reconcile REST rather than inventing them.",
+    "push_example": null,
+    "notes": ""
+  },
+  "order": {
+    "name": "order",
+    "source": "https://www.bitunix.com/api-docs/futures/websocket/private/Order%20Channel.html",
+    "private": true,
+    "request_parameters": [],
+    "push_parameters": [
+      {
+        "name": "ch",
+        "type": "String",
+        "description": "Channel name: order"
+      },
+      {
+        "name": "ts",
+        "type": "Int64",
+        "description": "Gateway send time in milliseconds; not business event time; do not confuse with ctime/mtime."
+      },
+      {
+        "name": "data",
+        "type": "<Object>",
+        "description": "Subscription data"
+      },
+      {
+        "name": ">event",
+        "type": "String",
+        "description": "CREATE/UPDATE/CLOSE"
+      },
+      {
+        "name": ">orderId",
+        "type": "String",
+        "description": "Order id"
+      },
+      {
+        "name": ">symbol",
+        "type": "String",
+        "description": "Symbol"
+      },
+      {
+        "name": ">positionType",
+        "type": "String",
+        "description": "Margin mode ISOLATION/CROSS"
+      },
+      {
+        "name": ">positionMode",
+        "type": "String",
+        "description": "ONE_WAY/HEDGE"
+      },
+      {
+        "name": ">side",
+        "type": "String",
+        "description": "BUY/SELL"
+      },
+      {
+        "name": ">effect",
+        "type": "String",
+        "description": "Required for LIMIT. IOC immediate or cancel; FOK fill or kill; GTC(default); POST_ONLY."
+      },
+      {
+        "name": ">type",
+        "type": "String",
+        "description": "LIMIT/MARKET"
+      },
+      {
+        "name": ">qty",
+        "type": "String",
+        "description": "Amount (base coin)"
+      },
+      {
+        "name": ">price",
+        "type": "String",
+        "description": "Price of order; required for LIMIT"
+      },
+      {
+        "name": ">ctime",
+        "type": "String",
+        "description": "ISO-8601 nanosecond create time, e.g. 2024-05-16T08:13:09.123456789Z"
+      },
+      {
+        "name": ">mtime",
+        "type": "String",
+        "description": "ISO-8601 nanosecond last modify time; same as ctime. REST order APIs use millisecond integers."
+      },
+      {
+        "name": ">leverage",
+        "type": "String",
+        "description": "Leverage"
+      },
+      {
+        "name": ">orderStatus",
+        "type": "String",
+        "description": "INIT/NEW/PART_FILLED/CANCELED/FILLED/PART_FILLED_CANCELED"
+      },
+      {
+        "name": ">fee",
+        "type": "String",
+        "description": "Deducted transaction fees during position"
+      },
+      {
+        "name": ">averagePrice",
+        "type": "String",
+        "description": "Average price"
+      },
+      {
+        "name": ">dealAmount",
+        "type": "String",
+        "description": "Deal amount"
+      },
+      {
+        "name": ">clientId",
+        "type": "String",
+        "description": "Client ID"
+      },
+      {
+        "name": ">tpStopType",
+        "type": "String",
+        "description": "MARK_PRICE/LAST_PRICE"
+      },
+      {
+        "name": ">tpPrice",
+        "type": "String",
+        "description": "Take profit trigger price"
+      },
+      {
+        "name": ">tpOrderType",
+        "type": "String",
+        "description": "LIMIT/MARKET"
+      },
+      {
+        "name": ">tpOrderPrice",
+        "type": "String",
+        "description": "Take profit order price LIMIT/MARKET (source wording)"
+      },
+      {
+        "name": ">slStopType",
+        "type": "String",
+        "description": "MARK_PRICE/LAST_PRICE"
+      },
+      {
+        "name": ">slPrice",
+        "type": "String",
+        "description": "Stop loss trigger price"
+      },
+      {
+        "name": ">slOrderType",
+        "type": "String",
+        "description": "LIMIT/MARKET"
+      },
+      {
+        "name": ">slOrderPrice",
+        "type": "String",
+        "description": "Stop loss order price LIMIT/MARKET (source wording)"
+      }
+    ],
+    "description": "Subscribe order channel. Pushed when open/close orders are created/filled/canceled.",
+    "push_example": null,
+    "notes": ""
+  },
+  "tpsl": {
+    "name": "tpsl",
+    "source": "https://www.bitunix.com/api-docs/futures/websocket/private/Tp%20Sl%20Channel.html",
+    "private": true,
+    "request_parameters": [],
+    "push_parameters": [
+      {
+        "name": "ch",
+        "type": "String",
+        "description": "Channel name: tpsl"
+      },
+      {
+        "name": "ts",
+        "type": "Int64",
+        "description": "Gateway send time, Unix milliseconds. Do not use to order business events."
+      },
+      {
+        "name": "data",
+        "type": "<Object>",
+        "description": "Always an object, not an array"
+      },
+      {
+        "name": ">event",
+        "type": "String",
+        "description": "CREATE/UPDATE/CLOSE"
+      },
+      {
+        "name": ">positionId",
+        "type": "String",
+        "description": "Position id"
+      },
+      {
+        "name": ">orderId",
+        "type": "String",
+        "description": "Order id"
+      },
+      {
+        "name": ">symbol",
+        "type": "String",
+        "description": "Symbol"
+      },
+      {
+        "name": ">leverage",
+        "type": "String",
+        "description": "Leverage"
+      },
+      {
+        "name": ">side",
+        "type": "String",
+        "description": "BUY/SELL"
+      },
+      {
+        "name": ">positionMode",
+        "type": "String",
+        "description": "ONE_WAY/HEDGE"
+      },
+      {
+        "name": ">status",
+        "type": "String",
+        "description": "NEW/CANCELED/SYSTEM_CANCELED/FILLED/FAILED"
+      },
+      {
+        "name": ">ctime",
+        "type": "String",
+        "description": "ISO-8601 nanosecond create time, e.g. 2024-05-16T08:13:09.123456789Z. REST history uses milliseconds."
+      },
+      {
+        "name": ">type",
+        "type": "String",
+        "description": "LIMIT/MARKET"
+      },
+      {
+        "name": ">tpQty",
+        "type": "String",
+        "description": "Take-profit quantity (base coin); omitted if unused"
+      },
+      {
+        "name": ">slQty",
+        "type": "String",
+        "description": "Stop-loss quantity (base coin); omitted if unused. Never Boolean or JSON null; string 0 sent as string 0."
+      },
+      {
+        "name": ">tpStopType",
+        "type": "String",
+        "description": "MARK_PRICE/LAST_PRICE"
+      },
+      {
+        "name": ">tpPrice",
+        "type": "String",
+        "description": "Take profit trigger price"
+      },
+      {
+        "name": ">tpOrderType",
+        "type": "String",
+        "description": "LIMIT/MARKET"
+      },
+      {
+        "name": ">tpOrderPrice",
+        "type": "String",
+        "description": "Take profit order price"
+      },
+      {
+        "name": ">slStopType",
+        "type": "String",
+        "description": "MARK_PRICE/LAST_PRICE"
+      },
+      {
+        "name": ">slPrice",
+        "type": "String",
+        "description": "Stop loss trigger price"
+      },
+      {
+        "name": ">slOrderType",
+        "type": "String",
+        "description": "LIMIT/MARKET"
+      },
+      {
+        "name": ">slOrderPrice",
+        "type": "String",
+        "description": "Stop loss order price"
+      }
+    ],
+    "description": "After private login succeeds, channel tpsl is pushed automatically. data is ALWAYS object. CLOSE alone is not a final state: read event together with status. FILLED means TP/SL triggered and CHILD ORDER PLACED, NOT child full fill. Child fills are order channel or REST. INIT/PENDING_CANCEL/TRIGGER_WAIT_PLACE are not pushed; PART_FILLED is not a TPSL status.",
+    "push_example": null,
+    "notes": "Event/status: CREATE+NEW effective; UPDATE+NEW modified; CLOSE+CANCELED user canceled; CLOSE+SYSTEM_CANCELED system canceled; CLOSE+FILLED trigger succeeded/child placed; CLOSE+FAILED trigger failed."
+  },
+  "depth": {
+    "name": "depth",
+    "source": "https://www.bitunix.com/api-docs/futures/websocket/public/depth%20channel.html",
+    "private": false,
+    "request_parameters": [
+      {
+        "name": "op",
+        "type": "String",
+        "required": true,
+        "required_literal": "Yes",
+        "description": "Operation: subscribe or unsubscribe"
+      },
+      {
+        "name": "args",
+        "type": "List<Object>",
+        "required": true,
+        "required_literal": "Yes",
+        "description": "List of channels to request subscription"
+      },
+      {
+        "name": ">ch",
+        "type": "String",
+        "required": true,
+        "required_literal": "Yes",
+        "description": "depth_books,depth_book1,depth_book5,depth_book15"
+      },
+      {
+        "name": ">symbol",
+        "type": "String",
+        "required": true,
+        "required_literal": "Yes",
+        "description": "Product ID e.g. ETHUSDT"
+      }
+    ],
+    "push_parameters": [
+      {
+        "name": "ch",
+        "type": "Object",
+        "description": "Channel name (source type)"
+      },
+      {
+        "name": "symbol",
+        "type": "String",
+        "description": "Product ID"
+      },
+      {
+        "name": "ts",
+        "type": "Int64",
+        "description": "Timestamp"
+      },
+      {
+        "name": "data",
+        "type": "String",
+        "description": "Subscription data (source type)"
+      },
+      {
+        "name": ">a",
+        "type": "List<String>",
+        "description": "Seller depth"
+      },
+      {
+        "name": ">b",
+        "type": "List<String>",
+        "description": "Buyer depth"
+      }
+    ],
+    "description": "books: first full snapshot then changed depth; book1/book5/book15: respective levels pushed each time.",
+    "push_example": {
+      "ch": "depth_book1",
+      "symbol": "BTCUSDT",
+      "ts": 1775541541009,
+      "data": {
+        "b": [
+          [
+            "7403.89",
+            "0.002"
+          ]
+        ],
+        "a": [
+          [
+            "7405.96",
+            "3.340"
+          ]
+        ]
+      }
+    },
+    "notes": "Tables type ch as Object, data as String; examples are string and object. For books apply deltas, zero qty removes price; rebuild on reconnect. No sequence ID/checksum is documented here; use REST refresh to recover uncertainty."
+  },
+  "kline": {
+    "name": "kline",
+    "source": "https://www.bitunix.com/api-docs/futures/websocket/public/kline%20channel.html",
+    "private": false,
+    "request_parameters": [
+      {
+        "name": "op",
+        "type": "String",
+        "required": true,
+        "required_literal": "Yes",
+        "description": "Operation: subscribe or unsubscribe"
+      },
+      {
+        "name": "args",
+        "type": "List<Object>",
+        "required": true,
+        "required_literal": "Yes",
+        "description": "List of channels to request subscription"
+      },
+      {
+        "name": ">ch",
+        "type": "String",
+        "required": true,
+        "required_literal": "Yes",
+        "description": "market_kline_1min,mark_kline_1min,market_kline_3min,mark_kline_3min,market_kline_5min,mark_kline_5min,market_kline_15min,mark_kline_15min,market_kline_30min,mark_kline_30min,market_kline_60min,mark_kline_60min,market_kline_2h,mark_kline_2h,market_kline_4h,mark_kline_4h,market_kline_6h,mark_kline_6h,market_kline_8h,mark_kline_8h,market_kline_12h,mark_kline_12h,market_kline_1day,mark_kline_1day,market_kline_3day,mark_kline_3day,market_kline_1week,mark_kline_1week,market_kline_1month,mark_kline_1month"
+      },
+      {
+        "name": ">symbol",
+        "type": "String",
+        "required": true,
+        "required_literal": "Yes",
+        "description": "Product ID e.g. ETHUSDT"
+      }
+    ],
+    "push_parameters": [
+      {
+        "name": "ch",
+        "type": "String",
+        "description": "Channel name"
+      },
+      {
+        "name": "symbol",
+        "type": "String",
+        "description": "Product ID e.g. ETHUSDT"
+      },
+      {
+        "name": "ts",
+        "type": "int64",
+        "description": "Timestamp"
+      },
+      {
+        "name": "data",
+        "type": "List<String>",
+        "description": "Subscription data"
+      },
+      {
+        "name": ">o",
+        "type": "String",
+        "description": "Opening price"
+      },
+      {
+        "name": ">h",
+        "type": "String",
+        "description": "Highest price"
+      },
+      {
+        "name": ">l",
+        "type": "String",
+        "description": "Lowest price"
+      },
+      {
+        "name": ">c",
+        "type": "String",
+        "description": "Closing price"
+      },
+      {
+        "name": ">b",
+        "type": "String",
+        "description": "Trading volume of the coin"
+      },
+      {
+        "name": ">q",
+        "type": "String",
+        "description": "Trading volume of quote currency"
+      }
+    ],
+    "description": "Candlestick push every 500 ms; snapshot then updates. MUST unsubscribe previous interval before subscribing new interval on same socket.",
+    "push_example": {
+      "ch": "market_kline_1min",
+      "symbol": "BTCUSDT",
+      "ts": 1775541412718,
+      "data": {
+        "o": "68581.4",
+        "c": "68583.4",
+        "h": "68590",
+        "l": "68579.5",
+        "b": "5.2395",
+        "q": "359348.14078"
+      }
+    },
+    "notes": "Unlike REST, WS documents 3min. No candle start time or closed flag in supplied push schema. Engine uses closed REST candles for indicators; never treats gateway ts as a closed-candle marker."
+  },
+  "price": {
+    "name": "price",
+    "source": "https://www.bitunix.com/api-docs/futures/websocket/public/MarketPrice%20Channel.html",
+    "private": false,
+    "request_parameters": [
+      {
+        "name": "op",
+        "type": "String",
+        "required": true,
+        "required_literal": "Yes",
+        "description": "Operation: subscribe or unsubscribe"
+      },
+      {
+        "name": "args",
+        "type": "List<Object>",
+        "required": true,
+        "required_literal": "Yes",
+        "description": "List of channels to request subscription"
+      },
+      {
+        "name": ">symbol",
+        "type": "String",
+        "required": true,
+        "required_literal": "Yes",
+        "description": "Product ID e.g. ETHUSDT"
+      },
+      {
+        "name": ">ch",
+        "type": "String",
+        "required": true,
+        "required_literal": "Yes",
+        "description": "Channel price"
+      }
+    ],
+    "push_parameters": [
+      {
+        "name": "ch",
+        "type": "String",
+        "description": "Channel name"
+      },
+      {
+        "name": "symbol",
+        "type": "String",
+        "description": "Product ID e.g. ETHUSDT"
+      },
+      {
+        "name": "ts",
+        "type": "int64",
+        "description": "Timestamp"
+      },
+      {
+        "name": "data",
+        "type": "List<String>",
+        "description": "Subscription data"
+      },
+      {
+        "name": ">mp",
+        "type": "String",
+        "description": "Market price"
+      },
+      {
+        "name": ">ip",
+        "type": "String",
+        "description": "Index price"
+      },
+      {
+        "name": ">fr",
+        "type": "String",
+        "description": "Funding rate"
+      },
+      {
+        "name": ">ft",
+        "type": "String",
+        "description": "Funding rate settlement time"
+      },
+      {
+        "name": ">nft",
+        "type": "String",
+        "description": "Next funding rate settlement time"
+      }
+    ],
+    "description": "Market price channel",
+    "push_example": {
+      "ch": "price",
+      "symbol": "BNBUSDT",
+      "ts": 1732178884994,
+      "data": {
+        "ip": "0.0010",
+        "mp": "10000",
+        "fr": "0.013461",
+        "ft": "2024-12-04T11:00:00Z",
+        "nft": "2024-12-04T12:00:00Z"
+      }
+    },
+    "notes": "Table says data List<String>, example is object; preserve received format."
+  },
+  "ticker": {
+    "name": "ticker",
+    "source": "https://www.bitunix.com/api-docs/futures/websocket/public/Ticker%20Channel.html",
+    "private": false,
+    "request_parameters": [
+      {
+        "name": "op",
+        "type": "String",
+        "required": true,
+        "required_literal": "Yes",
+        "description": "Operation: subscribe or unsubscribe"
+      },
+      {
+        "name": "args",
+        "type": "List<Object>",
+        "required": true,
+        "required_literal": "Yes",
+        "description": "List of channels to request subscription"
+      },
+      {
+        "name": ">symbol",
+        "type": "String",
+        "required": true,
+        "required_literal": "Yes",
+        "description": "Product ID e.g. ETHUSDT"
+      },
+      {
+        "name": ">ch",
+        "type": "String",
+        "required": true,
+        "required_literal": "Yes",
+        "description": "Channel ticker"
+      }
+    ],
+    "push_parameters": [
+      {
+        "name": "ch",
+        "type": "String",
+        "description": "Channel name"
+      },
+      {
+        "name": "symbol",
+        "type": "String",
+        "description": "Product ID e.g. ETHUSDT"
+      },
+      {
+        "name": "ts",
+        "type": "int64",
+        "description": "Timestamp"
+      },
+      {
+        "name": "data",
+        "type": "List<String>",
+        "description": "Subscription data"
+      },
+      {
+        "name": ">s",
+        "type": "String",
+        "description": "Symbol e.g. ETHUSDT"
+      },
+      {
+        "name": ">o",
+        "type": "String",
+        "description": "Opening price"
+      },
+      {
+        "name": ">h",
+        "type": "String",
+        "description": "Highest price"
+      },
+      {
+        "name": ">l",
+        "type": "String",
+        "description": "Lowest price"
+      },
+      {
+        "name": ">la",
+        "type": "String",
+        "description": "Last price"
+      },
+      {
+        "name": ">b",
+        "type": "String",
+        "description": "Trading volume of the coin"
+      },
+      {
+        "name": ">q",
+        "type": "String",
+        "description": "Trading volume of quote currency"
+      },
+      {
+        "name": ">r",
+        "type": "String",
+        "description": "24-hour fluctuations"
+      }
+    ],
+    "description": "24-hour rolling mini-ticker statistics; NOT UTC calendar-day statistics.",
+    "push_example": {
+      "ch": "ticker",
+      "symbol": "BNBUSDT",
+      "ts": 1732178884994,
+      "data": {
+        "s": "BTCUSDT",
+        "la": "68650.9",
+        "o": "69141.6",
+        "h": "70319.9",
+        "l": "68241.9",
+        "b": "26295.3977",
+        "q": "1823374525.0193",
+        "r": "-0.7097029863"
+      }
+    },
+    "notes": "Table data List<String>, example object. Example envelope symbol BNBUSDT differs from data.s BTCUSDT; do not assign price to a guessed symbol."
+  },
+  "tickers": {
+    "name": "tickers",
+    "source": "https://www.bitunix.com/api-docs/futures/websocket/public/Tickers%20Channel.html",
+    "private": false,
+    "request_parameters": [
+      {
+        "name": "op",
+        "type": "String",
+        "required": true,
+        "required_literal": "Yes",
+        "description": "Operation: subscribe or unsubscribe"
+      },
+      {
+        "name": "args",
+        "type": "List<Object>",
+        "required": true,
+        "required_literal": "Yes",
+        "description": "List of channels to request subscription"
+      },
+      {
+        "name": ">symbol",
+        "type": "String",
+        "required": true,
+        "required_literal": "Yes",
+        "description": "Product ID e.g. ETHUSDT"
+      },
+      {
+        "name": ">ch",
+        "type": "String",
+        "required": true,
+        "required_literal": "Yes",
+        "description": "Channel tickers"
+      }
+    ],
+    "push_parameters": [
+      {
+        "name": "ch",
+        "type": "String",
+        "description": "Channel name"
+      },
+      {
+        "name": "ts",
+        "type": "int64",
+        "description": "Timestamp"
+      },
+      {
+        "name": "data",
+        "type": "List<String>",
+        "description": "Subscription data"
+      },
+      {
+        "name": ">s",
+        "type": "String",
+        "description": "Symbol e.g. ETHUSDT"
+      },
+      {
+        "name": ">o",
+        "type": "String",
+        "description": "Opening price"
+      },
+      {
+        "name": ">h",
+        "type": "String",
+        "description": "Highest price"
+      },
+      {
+        "name": ">l",
+        "type": "String",
+        "description": "Lowest price"
+      },
+      {
+        "name": ">la",
+        "type": "String",
+        "description": "Last price"
+      },
+      {
+        "name": ">b",
+        "type": "String",
+        "description": "Trading volume of the coin"
+      },
+      {
+        "name": ">q",
+        "type": "String",
+        "description": "Trading volume of quote currency"
+      },
+      {
+        "name": ">r",
+        "type": "String",
+        "description": "24-hour fluctuations"
+      },
+      {
+        "name": ">bd",
+        "type": "String",
+        "description": "Best bid price"
+      },
+      {
+        "name": ">ak",
+        "type": "String",
+        "description": "Best ask price"
+      },
+      {
+        "name": ">bv",
+        "type": "String",
+        "description": "Best bid volume"
+      },
+      {
+        "name": ">av",
+        "type": "String",
+        "description": "Best ask volume"
+      }
+    ],
+    "description": "Aggregated 24-hour rolling statistics; data structure differs from ticker; NOT UTC daily data.",
+    "push_example": {
+      "ch": "tickers",
+      "ts": 1732178884994,
+      "data": [
+        {
+          "s": "BTCUSDT",
+          "la": "68650.9",
+          "o": "69141.6",
+          "h": "70319.9",
+          "l": "68241.9",
+          "b": "26295.3977",
+          "q": "1823374525.0193",
+          "r": "-0.7097029863",
+          "bd": "68650.9",
+          "ak": "68651",
+          "bv": "0.9747",
+          "av": "2.3606"
+        },
+        {
+          "s": "ETHUSDT",
+          "la": "2104.61",
+          "o": "2128.49",
+          "h": "2173.75",
+          "l": "2086.79",
+          "b": "945498.652",
+          "q": "2018286647.13588",
+          "r": "-1.1219221138",
+          "bd": "2104.6",
+          "ak": "2104.61",
+          "bv": "27.789",
+          "av": "7.905"
+        }
+      ]
+    },
+    "notes": ""
+  },
+  "trade": {
+    "name": "trade",
+    "source": "https://www.bitunix.com/api-docs/futures/websocket/public/Trade%20Channel.html",
+    "private": false,
+    "request_parameters": [
+      {
+        "name": "op",
+        "type": "String",
+        "required": true,
+        "required_literal": "Yes",
+        "description": "Operation: subscribe or unsubscribe"
+      },
+      {
+        "name": "args",
+        "type": "List<Object>",
+        "required": true,
+        "required_literal": "Yes",
+        "description": "List of channels to request subscription"
+      },
+      {
+        "name": ">symbol",
+        "type": "String",
+        "required": true,
+        "required_literal": "Yes",
+        "description": "Product ID e.g. ETHUSDT"
+      },
+      {
+        "name": ">ch",
+        "type": "String",
+        "required": true,
+        "required_literal": "Yes",
+        "description": "Channel trade"
+      }
+    ],
+    "push_parameters": [
+      {
+        "name": "ch",
+        "type": "String",
+        "description": "Channel trade"
+      },
+      {
+        "name": "symbol",
+        "type": "String",
+        "description": "Symbol e.g. ETHUSDT"
+      },
+      {
+        "name": "ts",
+        "type": "String",
+        "description": "Timestamp"
+      },
+      {
+        "name": "data",
+        "type": "List<Object>",
+        "description": "Data"
+      },
+      {
+        "name": ">p",
+        "type": "String",
+        "description": "Filled price"
+      },
+      {
+        "name": ">v",
+        "type": "String",
+        "description": "Filled amount"
+      },
+      {
+        "name": ">s",
+        "type": "String",
+        "description": "Filled side sell/buy"
+      },
+      {
+        "name": ">t",
+        "type": "String",
+        "description": "Timestamp"
+      }
+    ],
+    "description": "Get public trade data",
+    "push_example": {
+      "ch": "trade",
+      "symbol": "BTCUSDT",
+      "ts": 1775540872598,
+      "data": [
+        {
+          "t": "2026-04-07T05:47:52Z",
+          "p": "68621.4",
+          "v": "0.7142",
+          "s": "buy"
+        },
+        {
+          "t": "2026-04-07T05:47:52Z",
+          "p": "68621.4",
+          "v": "0.0018",
+          "s": "sell"
+        }
+      ]
+    },
+    "notes": ""
+  }
+}

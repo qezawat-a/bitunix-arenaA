@@ -1,0 +1,3862 @@
+{
+  "get_tickers": {
+    "name": "get_tickers",
+    "source": "https://www.bitunix.com/api-docs/futures/market/get_tickers.html",
+    "method": "GET",
+    "path": "/api/v1/futures/market/tickers",
+    "public": true,
+    "rate_per_second": 10,
+    "description": "Get future trading pair tickers",
+    "parameters": [
+      {
+        "name": "symbols",
+        "type": "string",
+        "required": false,
+        "required_literal": "false",
+        "description": "Trading pairs, based on symbolName, i.e. BTCUSDT,ETHUSDT,XRPUSDT"
+      }
+    ],
+    "response_parameters": [
+      {
+        "name": "symbol",
+        "type": "string",
+        "description": "Coin pair name i.e. BTCUSDT"
+      },
+      {
+        "name": "markPrice",
+        "type": "string",
+        "description": "Mark price"
+      },
+      {
+        "name": "lastPrice",
+        "type": "string",
+        "description": "Last price"
+      },
+      {
+        "name": "open",
+        "type": "string",
+        "description": "Entry price of last 24 hours"
+      },
+      {
+        "name": "last",
+        "type": "string",
+        "description": "Last price"
+      },
+      {
+        "name": "quoteVol",
+        "type": "string",
+        "description": "Trading volume of the coin (last 24 hours), source wording"
+      },
+      {
+        "name": "baseVol",
+        "type": "string",
+        "description": "Trading volume of last 24 hours"
+      },
+      {
+        "name": "high",
+        "type": "string",
+        "description": "24-hour high"
+      },
+      {
+        "name": "low",
+        "type": "string",
+        "description": "24-hour low"
+      }
+    ],
+    "request_example": {
+      "symbols": "BTCUSDT,ETHUSDT"
+    },
+    "response_example": [
+      {
+        "symbol": "BTCUSDT",
+        "markPrice": "57892.1",
+        "lastPrice": "57891.2",
+        "open": "6.31",
+        "last": "6.31",
+        "quoteVol": "0",
+        "baseVol": "0",
+        "high": "6.31",
+        "low": "6.31"
+      },
+      {
+        "symbol": "ETHUSDT",
+        "markPrice": "2000",
+        "lastPrice": "2020.1",
+        "open": "6.31",
+        "last": "6.31",
+        "quoteVol": "0",
+        "baseVol": "0",
+        "high": "6.31",
+        "low": "6.31"
+      }
+    ],
+    "notes": ""
+  },
+  "get_depth": {
+    "name": "get_depth",
+    "source": "https://www.bitunix.com/api-docs/futures/market/get_depth.html",
+    "method": "GET",
+    "path": "/api/v1/futures/market/depth",
+    "public": true,
+    "rate_per_second": 10,
+    "description": "Get future order book",
+    "parameters": [
+      {
+        "name": "symbol",
+        "type": "string",
+        "required": true,
+        "required_literal": "true",
+        "description": "Trading pair, based on symbolName, e.g. BTCUSDT"
+      },
+      {
+        "name": "limit",
+        "type": "string",
+        "required": false,
+        "required_literal": "false",
+        "description": "Fixed enumeration 1/5/15/50/max. max returns maximum gear. Actual depth returned if below requested limit."
+      }
+    ],
+    "response_parameters": [
+      {
+        "name": "asks.index[0]",
+        "type": "string",
+        "description": "Ask price"
+      },
+      {
+        "name": "asks.index[1]",
+        "type": "string",
+        "description": "Ask amount"
+      },
+      {
+        "name": "bids.index[0]",
+        "type": "string",
+        "description": "Bid price"
+      },
+      {
+        "name": "bids.index[1]",
+        "type": "string",
+        "description": "Bid amount"
+      }
+    ],
+    "request_example": {
+      "symbol": "BTCUSDT",
+      "limit": "max"
+    },
+    "response_example": {
+      "asks": [
+        [
+          0.1001,
+          0.1
+        ],
+        [
+          0.1002,
+          10
+        ]
+      ],
+      "bids": [
+        [
+          0.1,
+          1
+        ],
+        [
+          0.0999,
+          10.23
+        ]
+      ]
+    },
+    "notes": ""
+  },
+  "get_funding_rate": {
+    "name": "get_funding_rate",
+    "source": "https://www.bitunix.com/api-docs/futures/market/get_funding_rate.html",
+    "method": "GET",
+    "path": "/api/v1/futures/market/funding_rate",
+    "public": true,
+    "rate_per_second": 10,
+    "description": "Get current funding rate of the contract",
+    "parameters": [
+      {
+        "name": "symbol",
+        "type": "string",
+        "required": true,
+        "required_literal": "true",
+        "description": "Trading pair, based on symbolName, e.g. BTCUSDT"
+      }
+    ],
+    "response_parameters": [
+      {
+        "name": "symbol",
+        "type": "string",
+        "description": "Coin pair"
+      },
+      {
+        "name": "markPrice",
+        "type": "decimal",
+        "description": "Mark price"
+      },
+      {
+        "name": "lastPrice",
+        "type": "decimal",
+        "description": "Last price"
+      },
+      {
+        "name": "indexPrice",
+        "type": "decimal",
+        "description": "Index price"
+      },
+      {
+        "name": "fundingRate",
+        "type": "decimal",
+        "description": "Current funding rates"
+      },
+      {
+        "name": "nextFundingTime",
+        "type": "int64",
+        "description": "Next funding settlement time (milliseconds)"
+      },
+      {
+        "name": "fundingInterval",
+        "type": "int32",
+        "description": "Funding settlement interval (hours)"
+      },
+      {
+        "name": "maxFundingRate",
+        "type": "decimal",
+        "description": "Max current funding rate"
+      },
+      {
+        "name": "minFundingRate",
+        "type": "decimal",
+        "description": "Min current funding rate"
+      }
+    ],
+    "request_example": {
+      "symbol": "BTCUSDT"
+    },
+    "response_example": [
+      {
+        "symbol": "BTCUSDT",
+        "markPrice": "60000",
+        "lastPrice": "60001",
+        "indexPrice": "60001",
+        "fundingRate": "0.0005",
+        "fundingInterval": 8,
+        "nextFundingTime": "1770710400000",
+        "maxFundingRate": "0.3",
+        "minFundingRate": "-0.3"
+      }
+    ],
+    "notes": ""
+  },
+  "get_funding_rate_batch": {
+    "name": "get_funding_rate_batch",
+    "source": "https://www.bitunix.com/api-docs/futures/market/get_funding_rate_batch.html",
+    "method": "GET",
+    "path": "/api/v1/futures/market/funding_rate/batch",
+    "public": true,
+    "rate_per_second": 10,
+    "description": "Get current funding rates of contracts",
+    "parameters": [],
+    "response_parameters": [
+      {
+        "name": "symbol",
+        "type": "string",
+        "description": "Coin pair"
+      },
+      {
+        "name": "markPrice",
+        "type": "decimal",
+        "description": "Mark price"
+      },
+      {
+        "name": "lastPrice",
+        "type": "decimal",
+        "description": "Last price"
+      },
+      {
+        "name": "indexPrice",
+        "type": "decimal",
+        "description": "Index price"
+      },
+      {
+        "name": "fundingRate",
+        "type": "decimal",
+        "description": "Current funding rates"
+      },
+      {
+        "name": "nextFundingTime",
+        "type": "int64",
+        "description": "Next funding settlement time (milliseconds)"
+      },
+      {
+        "name": "fundingInterval",
+        "type": "int32",
+        "description": "Funding settlement interval (hours)"
+      },
+      {
+        "name": "maxFundingRate",
+        "type": "decimal",
+        "description": "Max current funding rate"
+      },
+      {
+        "name": "minFundingRate",
+        "type": "decimal",
+        "description": "Min current funding rate"
+      }
+    ],
+    "request_example": {},
+    "response_example": [
+      {
+        "symbol": "BTCUSDT",
+        "markPrice": "60000",
+        "lastPrice": "60001",
+        "indexPrice": "60001",
+        "fundingRate": "0.0005",
+        "fundingInterval": 8,
+        "nextFundingTime": "1770710400000",
+        "maxFundingRate": "0.3",
+        "minFundingRate": "-0.3"
+      }
+    ],
+    "notes": ""
+  },
+  "get_funding_rate_history": {
+    "name": "get_funding_rate_history",
+    "source": "https://www.bitunix.com/api-docs/futures/market/get_funding_rate_history.html",
+    "method": "GET",
+    "path": "/api/v1/futures/market/get_funding_rate_history",
+    "public": true,
+    "rate_per_second": 10,
+    "description": "Get historical funding rate",
+    "parameters": [
+      {
+        "name": "symbol",
+        "type": "string",
+        "required": true,
+        "required_literal": "true",
+        "description": "Trading pair, based on symbolName, e.g. BTCUSDT"
+      },
+      {
+        "name": "starTime",
+        "type": "int64",
+        "required": false,
+        "required_literal": "false",
+        "description": "Start timestamp (funding settle time). Unix timestamp in milliseconds, e.g. 1597026383085."
+      },
+      {
+        "name": "endTime",
+        "type": "int64",
+        "required": false,
+        "required_literal": "fasle",
+        "description": "End timestamp (funding settle time). Unix timestamp in milliseconds, e.g. 1597026383085."
+      },
+      {
+        "name": "limit",
+        "type": "int32",
+        "required": false,
+        "required_literal": "false",
+        "description": "Default: 100; maximum: 200"
+      }
+    ],
+    "response_parameters": [
+      {
+        "name": "markPrice",
+        "type": "string",
+        "description": "Mark price"
+      },
+      {
+        "name": "fundingRate",
+        "type": "string",
+        "description": "Funding rate"
+      },
+      {
+        "name": "fundingTime",
+        "type": "int64",
+        "description": "Funding timestamp"
+      }
+    ],
+    "request_example": {
+      "symbol": "BTCUSDT",
+      "limit": 10
+    },
+    "response_example": [
+      {
+        "fundingRate": "-0.00001191",
+        "fundingTime": "1772449200000",
+        "markPrice": "66286.6"
+      }
+    ],
+    "notes": "Source spells starTime (not startTime) and fasle (not false); retained exactly in schema. Confirm with exchange if rejected."
+  },
+  "get_kline": {
+    "name": "get_kline",
+    "source": "https://www.bitunix.com/api-docs/futures/market/get_kline.html",
+    "method": "GET",
+    "path": "/api/v1/futures/market/kline",
+    "public": true,
+    "rate_per_second": 10,
+    "description": "Get future kline history",
+    "parameters": [
+      {
+        "name": "symbol",
+        "type": "string",
+        "required": true,
+        "required_literal": "true",
+        "description": "Trading pair, based on symbolName, e.g. BTCUSDT"
+      },
+      {
+        "name": "startTime",
+        "type": "int64",
+        "required": false,
+        "required_literal": "false",
+        "description": "Query k-lines after this time; Unix timestamp in milliseconds, e.g. 1672410780000"
+      },
+      {
+        "name": "endTime",
+        "type": "int64",
+        "required": false,
+        "required_literal": "false",
+        "description": "Query k-lines before this time; Unix timestamp in milliseconds, e.g. 1672410780000"
+      },
+      {
+        "name": "interval",
+        "type": "string",
+        "required": true,
+        "required_literal": "true",
+        "description": "1m 5m 15m 30m 1h 2h 4h 6h 8h 12h 1d 3d 1w 1M"
+      },
+      {
+        "name": "limit",
+        "type": "int",
+        "required": false,
+        "required_literal": "false",
+        "description": "Default 100; maximum 200"
+      },
+      {
+        "name": "type",
+        "type": "string",
+        "required": false,
+        "required_literal": "false",
+        "description": "Kline type LAST_PRICE or MARK_PRICE; default LAST_PRICE"
+      }
+    ],
+    "response_parameters": [
+      {
+        "name": "open",
+        "type": "string",
+        "description": "Open price"
+      },
+      {
+        "name": "high",
+        "type": "string",
+        "description": "High price"
+      },
+      {
+        "name": "low",
+        "type": "string",
+        "description": "Low price"
+      },
+      {
+        "name": "close",
+        "type": "string",
+        "description": "Close price"
+      },
+      {
+        "name": "quoteVol",
+        "type": "string",
+        "description": "Trading amount (quote currency turnover) for kline period"
+      },
+      {
+        "name": "baseVol",
+        "type": "string",
+        "description": "Trading volume (base coin) for kline period"
+      }
+    ],
+    "request_example": {
+      "symbol": "BTCUSDT",
+      "startTime": 1,
+      "endTime": 10234,
+      "interval": "15m"
+    },
+    "response_example": [
+      {
+        "open": "60000",
+        "high": "60001",
+        "close": "60000",
+        "low": "59989.2",
+        "time": 111111,
+        "quoteVol": "1",
+        "baseVol": "60000",
+        "type": "LAST_PRICE"
+      }
+    ],
+    "notes": "Response example has time and type absent from table. 3m is NOT documented: constructed locally from complete closed 1m candles."
+  },
+  "get_trading_pairs": {
+    "name": "get_trading_pairs",
+    "source": "https://www.bitunix.com/api-docs/futures/market/get_trading_pairs.html",
+    "method": "GET",
+    "path": "/api/v1/futures/market/trading_pairs",
+    "public": true,
+    "rate_per_second": 10,
+    "description": "Get future trading pair details",
+    "parameters": [
+      {
+        "name": "symbols",
+        "type": "string",
+        "required": false,
+        "required_literal": "false",
+        "description": "Trading pairs, based on symbolName, i.e. BTCUSDT,ETHUSDT,XRPUSDT"
+      }
+    ],
+    "response_parameters": [
+      {
+        "name": "symbol",
+        "type": "string",
+        "description": "Coin pair name i.e. BTCUSDT"
+      },
+      {
+        "name": "base",
+        "type": "string",
+        "description": "Base currency; ETH in ETHUSDT"
+      },
+      {
+        "name": "quote",
+        "type": "string",
+        "description": "Base currency (source wording); USDT in ETHUSDT"
+      },
+      {
+        "name": "minTradeVolume",
+        "type": "string",
+        "description": "Minimum opening amount (base currency)"
+      },
+      {
+        "name": "minBuyPriceOffset",
+        "type": "string",
+        "description": "Minimum price offset for buy orders"
+      },
+      {
+        "name": "maxSellPriceOffset",
+        "type": "string",
+        "description": "Maximum price offset for sell orders"
+      },
+      {
+        "name": "maxLimitOrderVolume",
+        "type": "string",
+        "description": "Maximum limit order base amount"
+      },
+      {
+        "name": "maxMarketOrderVolume",
+        "type": "string",
+        "description": "Maximum market order base amount"
+      },
+      {
+        "name": "basePrecision",
+        "type": "int",
+        "description": "Max precision of opening amount"
+      },
+      {
+        "name": "quotePrecision",
+        "type": "int",
+        "description": "Max precision of order price"
+      },
+      {
+        "name": "maxLeverage",
+        "type": "int",
+        "description": "Max leverage"
+      },
+      {
+        "name": "minLeverage",
+        "type": "int",
+        "description": "Min leverage"
+      },
+      {
+        "name": "defaultLeverage",
+        "type": "int",
+        "description": "Default leverage"
+      },
+      {
+        "name": "defaultMarginMode",
+        "type": "string",
+        "description": "Default margin mode Isolation or Cross"
+      },
+      {
+        "name": "priceProtectScope",
+        "type": "string",
+        "description": "Price protection scope. Mark 10000, scope 0.02: minimum sell 10000*(1-0.02)=9800; maximum buy 10000*(1+0.02)=10200."
+      },
+      {
+        "name": "symbolStatus",
+        "type": "string",
+        "description": "OPEN: trading normal; CANCEL_ONLY: cancel only; STOP: cannot open/close"
+      },
+      {
+        "name": "isApiSupported",
+        "type": "bool",
+        "description": "true: API trading enabled; false: disabled"
+      },
+      {
+        "name": "maxFundingRate",
+        "type": "decimal",
+        "description": "Max current funding rate"
+      },
+      {
+        "name": "minFundingRate",
+        "type": "decimal",
+        "description": "Min current funding rate"
+      },
+      {
+        "name": "launchTime",
+        "type": "long",
+        "description": "Contract launch time. Unix milliseconds UTC. null if not configured."
+      },
+      {
+        "name": "delistTime",
+        "type": "long",
+        "description": "Scheduled delisting time. Unix milliseconds UTC. Omitted if not configured or cleared."
+      }
+    ],
+    "request_example": {
+      "symbols": "BTCUSDT,ETHUSDT"
+    },
+    "response_example": [
+      {
+        "symbol": "BTCUSDT",
+        "base": "BTC",
+        "quote": "USDT",
+        "minTradeVolume": "0.0001",
+        "minBuyPriceOffset": "-0.95",
+        "maxSellPriceOffset": "100",
+        "maxLimitOrderVolume": "100000",
+        "maxMarketOrderVolume": "50000",
+        "basePrecision": 4,
+        "quotePrecision": 1,
+        "minLeverage": 1,
+        "maxLeverage": 125,
+        "defaultLeverage": 20,
+        "defaultMarginMode": 1,
+        "priceProtectScope": "0.02",
+        "symbolStatus": "OPEN",
+        "isApiSupported": true,
+        "maxFundingRate": "0.3",
+        "minFundingRate": "-0.3"
+      }
+    ],
+    "notes": "defaultMarginMode example is numeric 1, but table lists string values. Engine explicitly sets ISOLATION rather than assuming defaults."
+  },
+  "adjust_position_margin": {
+    "name": "adjust_position_margin",
+    "source": "https://www.bitunix.com/api-docs/futures/account/adjust_position_margin.html",
+    "method": "POST",
+    "path": "/api/v1/futures/account/adjust_position_margin",
+    "public": false,
+    "rate_per_second": 5,
+    "description": "Add/reduce margin (isolated margin mode only)",
+    "parameters": [
+      {
+        "name": "symbol",
+        "type": "string",
+        "required": true,
+        "required_literal": "true",
+        "description": "Trading pair"
+      },
+      {
+        "name": "marginCoin",
+        "type": "string",
+        "required": true,
+        "required_literal": "true",
+        "description": "Margin coin"
+      },
+      {
+        "name": "amount",
+        "type": "string",
+        "required": true,
+        "required_literal": "true",
+        "description": "Margin amount; positive increases, negative decreases"
+      },
+      {
+        "name": "side",
+        "type": "string",
+        "required": false,
+        "required_literal": "false",
+        "description": "Position side LONG or SHORT. Either side or positionId required."
+      },
+      {
+        "name": "positionId",
+        "type": "string",
+        "required": false,
+        "required_literal": "false",
+        "description": "Position id. Either side or positionId required."
+      }
+    ],
+    "response_parameters": [
+      {
+        "name": "N/A",
+        "type": "",
+        "description": ""
+      }
+    ],
+    "request_example": {
+      "symbol": "BTCUSDT",
+      "amount": "-100",
+      "marginCoin": "USDT",
+      "side": "LONG"
+    },
+    "response_example": "",
+    "notes": ""
+  },
+  "change_leverage": {
+    "name": "change_leverage",
+    "source": "https://www.bitunix.com/api-docs/futures/account/change_leverage.html",
+    "method": "POST",
+    "path": "/api/v1/futures/account/change_leverage",
+    "public": false,
+    "rate_per_second": 10,
+    "description": "Adjust leverage on given symbol",
+    "parameters": [
+      {
+        "name": "marginCoin",
+        "type": "string",
+        "required": true,
+        "required_literal": "true",
+        "description": "Margin coin"
+      },
+      {
+        "name": "symbol",
+        "type": "string",
+        "required": true,
+        "required_literal": "true",
+        "description": "Trading pair"
+      },
+      {
+        "name": "leverage",
+        "type": "int",
+        "required": true,
+        "required_literal": "true",
+        "description": "Leverage"
+      }
+    ],
+    "response_parameters": [
+      {
+        "name": "marginCoin",
+        "type": "string",
+        "description": "Margin coin"
+      },
+      {
+        "name": "symbol",
+        "type": "string",
+        "description": "Trading pair"
+      },
+      {
+        "name": "leverage",
+        "type": "int",
+        "description": "Leverage"
+      }
+    ],
+    "request_example": {
+      "symbol": "BTCUSDT",
+      "leverage": 12,
+      "marginCoin": "USDT"
+    },
+    "response_example": [
+      {
+        "marginCoin": "USDT",
+        "leverage": 12,
+        "symbol": "BTCUSDT"
+      }
+    ],
+    "notes": ""
+  },
+  "change_margin_mode": {
+    "name": "change_margin_mode",
+    "source": "https://www.bitunix.com/api-docs/futures/account/change_margin_mode.html",
+    "method": "POST",
+    "path": "/api/v1/futures/account/change_margin_mode",
+    "public": false,
+    "rate_per_second": 10,
+    "description": "Cannot be used while user has an open position or order",
+    "parameters": [
+      {
+        "name": "marginMode",
+        "type": "string",
+        "required": true,
+        "required_literal": "true",
+        "description": "ISOLATION or CROSS"
+      },
+      {
+        "name": "symbol",
+        "type": "string",
+        "required": true,
+        "required_literal": "true",
+        "description": "Trading pair"
+      },
+      {
+        "name": "marginCoin",
+        "type": "string",
+        "required": true,
+        "required_literal": "true",
+        "description": "Margin coin"
+      }
+    ],
+    "response_parameters": [
+      {
+        "name": "marginMode",
+        "type": "string",
+        "description": "ISOLATION or CROSS"
+      },
+      {
+        "name": "symbol",
+        "type": "string",
+        "description": "Trading pair"
+      },
+      {
+        "name": "marginCoin",
+        "type": "string",
+        "description": "Margin coin"
+      }
+    ],
+    "request_example": {
+      "marginMode": "ISOLATION",
+      "symbol": "BTCUSDT",
+      "marginCoin": "USDT"
+    },
+    "response_example": {
+      "marginCoin": "USDT",
+      "symbol": "BTCUSDT",
+      "marginMode": "ISOLATION"
+    },
+    "notes": ""
+  },
+  "change_position_mode": {
+    "name": "change_position_mode",
+    "source": "https://www.bitunix.com/api-docs/futures/account/change_position_mode.html",
+    "method": "POST",
+    "path": "/api/v1/futures/account/change_position_mode",
+    "public": false,
+    "rate_per_second": 10,
+    "description": "Adjust position mode between one-way and hedge across all symbol futures. May fail if any positions or orders exist.",
+    "parameters": [
+      {
+        "name": "positionMode",
+        "type": "string",
+        "required": true,
+        "required_literal": "true",
+        "description": "Position mode: ONE_WAY or HEDGE"
+      }
+    ],
+    "response_parameters": [
+      {
+        "name": "positionMode",
+        "type": "string",
+        "description": "ONE_WAY or HEDGE"
+      }
+    ],
+    "request_example": {
+      "positionMode": "HEDGE"
+    },
+    "response_example": [
+      {
+        "positionMode": "HEDGE"
+      }
+    ],
+    "notes": "Source also gives error {\"code\":200014,\"data\":null,\"msg\":\"Existing positions or orders, unable to switch holding mode.\"}; number conflicts with error-code table (20014)."
+  },
+  "get_leverage_and_margin_mode": {
+    "name": "get_leverage_and_margin_mode",
+    "source": "https://www.bitunix.com/api-docs/futures/account/get_leverage_and_margin_mode.html",
+    "method": "GET",
+    "path": "/api/v1/futures/account/get_leverage_margin_mode",
+    "public": false,
+    "rate_per_second": 10,
+    "description": "Get leverage and margin mode",
+    "parameters": [
+      {
+        "name": "symbol",
+        "type": "string",
+        "required": true,
+        "required_literal": "true",
+        "description": "Trading pair"
+      },
+      {
+        "name": "marginCoin",
+        "type": "string",
+        "required": true,
+        "required_literal": "true",
+        "description": "Margin coin"
+      }
+    ],
+    "response_parameters": [
+      {
+        "name": "symbol",
+        "type": "string",
+        "description": "Trading pair"
+      },
+      {
+        "name": "marginCoin",
+        "type": "string",
+        "description": "Margin coin"
+      },
+      {
+        "name": "leverage",
+        "type": "int",
+        "description": "Leverage"
+      },
+      {
+        "name": "marginMode",
+        "type": "string",
+        "description": "ISOLATION or CROSS"
+      }
+    ],
+    "request_example": {
+      "symbol": "BTCUSDT",
+      "marginCoin": "USDT"
+    },
+    "response_example": {
+      "symbol": "BTCUSDT",
+      "marginCoin": "USDT",
+      "leverage": 10,
+      "marginMode": "ISOLATION"
+    },
+    "notes": ""
+  },
+  "get_single_account": {
+    "name": "get_single_account",
+    "source": "https://www.bitunix.com/api-docs/futures/account/get_single_account.html",
+    "method": "GET",
+    "path": "/api/v1/futures/account",
+    "public": false,
+    "rate_per_second": 10,
+    "description": "Get account details for marginCoin",
+    "parameters": [
+      {
+        "name": "marginCoin",
+        "type": "string",
+        "required": true,
+        "required_literal": "true",
+        "description": "Margin coin"
+      }
+    ],
+    "response_parameters": [
+      {
+        "name": "marginCoin",
+        "type": "string",
+        "description": "Margin coin"
+      },
+      {
+        "name": "available",
+        "type": "string",
+        "description": "Available quantity. This + crossUnrealizedPNL = actual maximum open amount."
+      },
+      {
+        "name": "frozen",
+        "type": "string",
+        "description": "Locked quantity of orders"
+      },
+      {
+        "name": "margin",
+        "type": "string",
+        "description": "Locked quantity of positions"
+      },
+      {
+        "name": "transfer",
+        "type": "string",
+        "description": "Maximum transferable amount"
+      },
+      {
+        "name": "positionMode",
+        "type": "string",
+        "description": "ONE_WAY or HEDGE"
+      },
+      {
+        "name": "crossUnrealizedPNL",
+        "type": "string",
+        "description": "Unrealized PnL for cross positions"
+      },
+      {
+        "name": "isolationUnrealizedPNL",
+        "type": "string",
+        "description": "Unrealized PnL for isolated positions"
+      },
+      {
+        "name": "bonus",
+        "type": "string",
+        "description": "Futures bonus"
+      }
+    ],
+    "request_example": {
+      "marginCoin": "USDT"
+    },
+    "response_example": [
+      {
+        "marginCoin": "USDT",
+        "available": "1000",
+        "frozen": "0",
+        "margin": "10",
+        "transfer": "1000",
+        "positionMode": "HEDGE",
+        "crossUnrealizedPNL": "2",
+        "isolationUnrealizedPNL": "0",
+        "bonus": "0"
+      }
+    ],
+    "notes": ""
+  },
+  "asset_query": {
+    "name": "asset_query",
+    "source": "https://www.bitunix.com/api-docs/futures/copyTrading/asset/asset_query.html",
+    "method": "GET",
+    "path": "/api/v1/cp/asset/query",
+    "public": false,
+    "rate_per_second": 10,
+    "description": "Asset query",
+    "parameters": [],
+    "response_parameters": [
+      {
+        "name": "available",
+        "type": "string",
+        "description": "Futures available"
+      },
+      {
+        "name": "maxTransfer",
+        "type": "string",
+        "description": "Maximum transfer amount"
+      }
+    ],
+    "request_example": {},
+    "response_example": {
+      "available": "54.20916",
+      "maxTransfer": "52.20916"
+    },
+    "notes": "Source response has additional outer success:true and msg:\"result.success\"."
+  },
+  "get_pending_positions": {
+    "name": "get_pending_positions",
+    "source": "https://www.bitunix.com/api-docs/futures/position/get_pending_positions.html",
+    "method": "GET",
+    "path": "/api/v1/futures/position/get_pending_positions",
+    "public": false,
+    "rate_per_second": 10,
+    "description": "Get pending positions",
+    "parameters": [
+      {
+        "name": "symbol",
+        "type": "string",
+        "required": false,
+        "required_literal": "false",
+        "description": "Trading pair"
+      },
+      {
+        "name": "positionId",
+        "type": "string",
+        "required": false,
+        "required_literal": "false",
+        "description": "Position id"
+      },
+      {
+        "name": "subAccountId",
+        "type": "int64",
+        "required": false,
+        "required_literal": "false",
+        "description": "With subAccountUid: positions for that sub-account only. Without subAccountUid: main account and all sub-accounts the current key can access (source wording)."
+      },
+      {
+        "name": "includeSubAccounts",
+        "type": "bool",
+        "required": false,
+        "required_literal": "false",
+        "description": "Enable or disable sub-account query"
+      }
+    ],
+    "response_parameters": [
+      {
+        "name": "positionId",
+        "type": "string",
+        "description": "Position id"
+      },
+      {
+        "name": "symbol",
+        "type": "string",
+        "description": "Trading pair"
+      },
+      {
+        "name": "qty",
+        "type": "string",
+        "description": "Position amount"
+      },
+      {
+        "name": "entryValue",
+        "type": "string",
+        "description": "Available amount for positions"
+      },
+      {
+        "name": "side",
+        "type": "string",
+        "description": "LONG or SHORT"
+      },
+      {
+        "name": "marginMode",
+        "type": "string",
+        "description": "ISOLATION or CROSS"
+      },
+      {
+        "name": "positionMode",
+        "type": "string",
+        "description": "ONE_WAY or HEDGE"
+      },
+      {
+        "name": "leverage",
+        "type": "int32",
+        "description": "Leverage"
+      },
+      {
+        "name": "fee",
+        "type": "string",
+        "description": "Deducted transaction fees during position"
+      },
+      {
+        "name": "funding",
+        "type": "string",
+        "description": "Total funding fee during position"
+      },
+      {
+        "name": "realizedPNL",
+        "type": "string",
+        "description": "Realized PnL excluding funding and transaction fee"
+      },
+      {
+        "name": "margin",
+        "type": "string",
+        "description": "Locked asset of position"
+      },
+      {
+        "name": "unrealizedPNL",
+        "type": "string",
+        "description": "Unrealized PnL"
+      },
+      {
+        "name": "liqPrice",
+        "type": "string",
+        "description": "Estimated liquidation price. <=0 means low risk and no liquidation price at this time."
+      },
+      {
+        "name": "marginRate",
+        "type": "string",
+        "description": "Margin ratio"
+      },
+      {
+        "name": "avgOpenPrice",
+        "type": "string",
+        "description": "Average open price"
+      },
+      {
+        "name": "ctime",
+        "type": "int64",
+        "description": "Create timestamp"
+      },
+      {
+        "name": "mtime",
+        "type": "int64",
+        "description": "Latest modify timestamp"
+      },
+      {
+        "name": "subAccountId",
+        "type": "int64",
+        "description": "Position account id"
+      }
+    ],
+    "request_example": {
+      "symbol": "BTCUSDT"
+    },
+    "response_example": [
+      {
+        "positionId": "12345678",
+        "symbol": "BTCUSDT",
+        "qty": "0.5",
+        "entryValue": "30000",
+        "side": "LONG",
+        "positionMode": "HEDGE",
+        "marginMode": "ISOLATION",
+        "leverage": 100,
+        "fee": "0.1",
+        "funding": "-0.2",
+        "realizedPNL": "102.9",
+        "margin": "300",
+        "unrealizedPNL": "1.5",
+        "liqPrice": "22209",
+        "marginRate": "0.01",
+        "avgOpenPrice": "1.0",
+        "ctime": 1691382137448,
+        "mtime": 1691382137448
+      }
+    ],
+    "notes": "Descriptions refer to subAccountUid but actual parameter row is subAccountId. Engine includes includeSubAccounts=false to avoid managing sub-accounts."
+  },
+  "get_history_positions": {
+    "name": "get_history_positions",
+    "source": "https://www.bitunix.com/api-docs/futures/position/get_history_positions.html",
+    "method": "GET",
+    "path": "/api/v1/futures/position/get_history_positions",
+    "public": false,
+    "rate_per_second": 10,
+    "description": "Get history positions",
+    "parameters": [
+      {
+        "name": "symbol",
+        "type": "string",
+        "required": false,
+        "required_literal": "false",
+        "description": "Trading pair"
+      },
+      {
+        "name": "positionId",
+        "type": "string",
+        "required": false,
+        "required_literal": "false",
+        "description": "Position id"
+      },
+      {
+        "name": "startTime",
+        "type": "int64",
+        "required": false,
+        "required_literal": "false",
+        "description": "Start timestamp (position create time). Unix timestamp in milliseconds, e.g. 1597026383085"
+      },
+      {
+        "name": "endTime",
+        "type": "int64",
+        "required": false,
+        "required_literal": "false",
+        "description": "Start timestamp (source wording). Unix timestamp in milliseconds, e.g. 1597026683085"
+      },
+      {
+        "name": "skip",
+        "type": "int64",
+        "required": false,
+        "required_literal": "false",
+        "description": "Skip order count; default: 0"
+      },
+      {
+        "name": "limit",
+        "type": "int64",
+        "required": false,
+        "required_literal": "false",
+        "description": "Number of queries: maximum 100, default 10"
+      },
+      {
+        "name": "subAccountId",
+        "type": "int64",
+        "required": false,
+        "required_literal": "false",
+        "description": "With subAccountUid: historical positions for that sub-account only. Without it: main account (source wording)."
+      }
+    ],
+    "response_parameters": [
+      {
+        "name": "positionList",
+        "type": "list",
+        "description": "Position list"
+      },
+      {
+        "name": ">positionId",
+        "type": "string",
+        "description": "Position id"
+      },
+      {
+        "name": ">symbol",
+        "type": "string",
+        "description": "Trading pair"
+      },
+      {
+        "name": ">maxQty",
+        "type": "string",
+        "description": "Max position amount"
+      },
+      {
+        "name": ">entryPrice",
+        "type": "string",
+        "description": "Average entry price"
+      },
+      {
+        "name": ">closePrice",
+        "type": "string",
+        "description": "Average close price"
+      },
+      {
+        "name": ">liqQty",
+        "type": "string",
+        "description": "Liquidate quantity"
+      },
+      {
+        "name": ">side",
+        "type": "string",
+        "description": "LONG or SHORT"
+      },
+      {
+        "name": ">marginMode",
+        "type": "string",
+        "description": "ISOLATION or CROSS"
+      },
+      {
+        "name": ">positionMode",
+        "type": "string",
+        "description": "ONE_WAY or HEDGE"
+      },
+      {
+        "name": ">leverage",
+        "type": "int32",
+        "description": "Leverage"
+      },
+      {
+        "name": ">fee",
+        "type": "string",
+        "description": "Deducted transaction fees during position"
+      },
+      {
+        "name": ">funding",
+        "type": "string",
+        "description": "Total funding fee during position"
+      },
+      {
+        "name": ">realizedPNL",
+        "type": "string",
+        "description": "Realized PnL excluding funding and transaction fees"
+      },
+      {
+        "name": ">liqPrice",
+        "type": "string",
+        "description": "Estimated liquidation price. <=0 means low risk and no liquidation price at this time."
+      },
+      {
+        "name": ">ctime",
+        "type": "int64",
+        "description": "Create timestamp"
+      },
+      {
+        "name": ">mtime",
+        "type": "int64",
+        "description": "Latest modify timestamp"
+      },
+      {
+        "name": ">subAccountId",
+        "type": "int64",
+        "description": "Position account id"
+      },
+      {
+        "name": "total",
+        "type": "int64",
+        "description": "Total count"
+      }
+    ],
+    "request_example": {
+      "symbol": "BTCUSDT"
+    },
+    "response_example": {
+      "positionList": [
+        {
+          "positionId": "12345678",
+          "symbol": "BTCUSDT",
+          "maxQty": "0.5",
+          "entryPrice": "60000",
+          "closePrice": "61000",
+          "liqQty": "0",
+          "side": "LONG",
+          "positionMode": "HEDGE",
+          "marginMode": "ISOLATION",
+          "leverage": 100,
+          "fee": "0.1",
+          "funding": "-0.2",
+          "realizedPNL": "102.9",
+          "liqPrice": "22209",
+          "ctime": 1691382137448,
+          "mtime": 1691382137448
+        }
+      ],
+      "total": 12
+    },
+    "notes": ""
+  },
+  "get_position_tiers": {
+    "name": "get_position_tiers",
+    "source": "https://www.bitunix.com/api-docs/futures/position/get_position_tiers.html",
+    "method": "GET",
+    "path": "/api/v1/futures/position/get_position_tiers",
+    "public": true,
+    "rate_per_second": 10,
+    "description": "Get position tiers",
+    "parameters": [
+      {
+        "name": "symbol",
+        "type": "string",
+        "required": true,
+        "required_literal": "true",
+        "description": "Trading pair, based on symbolName, e.g. BTCUSDT"
+      }
+    ],
+    "response_parameters": [
+      {
+        "name": "symbol",
+        "type": "string",
+        "description": "Trading pair"
+      },
+      {
+        "name": "level",
+        "type": "int32",
+        "description": "Level"
+      },
+      {
+        "name": "startValue",
+        "type": "string",
+        "description": "Minimum value"
+      },
+      {
+        "name": "endValue",
+        "type": "string",
+        "description": "Maximum value"
+      },
+      {
+        "name": "leverage",
+        "type": "int32",
+        "description": "Leverage"
+      },
+      {
+        "name": "maintenanceMarginRate",
+        "type": "string",
+        "description": "Maintenance margin rate for position quantity tier. Below this rate triggers forced partial or full liquidation."
+      }
+    ],
+    "request_example": {
+      "symbol": "BTCUSDT"
+    },
+    "response_example": [
+      {
+        "symbol": "BTCUSDT",
+        "level": 1,
+        "startValue": "0",
+        "endValue": "50000",
+        "leverage": 125,
+        "maintenanceMarginRate": "0.004"
+      },
+      {
+        "symbol": "BTCUSDT",
+        "level": 2,
+        "startValue": "50000",
+        "endValue": "200000",
+        "leverage": 100,
+        "maintenanceMarginRate": "0.005"
+      }
+    ],
+    "notes": ""
+  },
+  "place_order": {
+    "name": "place_order",
+    "source": "https://www.bitunix.com/api-docs/futures/trade/place_order.html",
+    "method": "POST",
+    "path": "/api/v1/futures/trade/place_order",
+    "public": false,
+    "rate_per_second": 10,
+    "description": "Place order",
+    "parameters": [
+      {
+        "name": "symbol",
+        "type": "string",
+        "required": true,
+        "required_literal": "true",
+        "description": "Trading pair"
+      },
+      {
+        "name": "qty",
+        "type": "string",
+        "required": true,
+        "required_literal": "true",
+        "description": "Amount (base coin)"
+      },
+      {
+        "name": "price",
+        "type": "string",
+        "required": false,
+        "required_literal": "false",
+        "description": "Price of the order. Required if orderType is LIMIT."
+      },
+      {
+        "name": "side",
+        "type": "string",
+        "required": true,
+        "required_literal": "true",
+        "description": "Order direction: BUY or SELL"
+      },
+      {
+        "name": "tradeSide",
+        "type": "string",
+        "required": true,
+        "required_literal": "true",
+        "description": "Only required in hedge-mode. Open long BUY/OPEN; open short SELL/OPEN; close long BUY/CLOSE; close short SELL/CLOSE."
+      },
+      {
+        "name": "positionId",
+        "type": "string",
+        "required": false,
+        "required_literal": "false",
+        "description": "Position ID. Required when tradeSide is CLOSE."
+      },
+      {
+        "name": "orderType",
+        "type": "string",
+        "required": true,
+        "required_literal": "true",
+        "description": "LIMIT: limit orders; MARKET: market orders"
+      },
+      {
+        "name": "effect",
+        "type": "string",
+        "required": false,
+        "required_literal": "false",
+        "description": "Order expiration. Required if orderType is LIMIT. IOC immediate or cancel; FOK fill or kill; GTC good till canceled (default); POST_ONLY."
+      },
+      {
+        "name": "clientId",
+        "type": "string",
+        "required": false,
+        "required_literal": "false",
+        "description": "Customize order ID"
+      },
+      {
+        "name": "reduceOnly",
+        "type": "boolean",
+        "required": false,
+        "required_literal": "false",
+        "description": "Whether or not to just reduce the position"
+      },
+      {
+        "name": "tpPrice",
+        "type": "string",
+        "required": false,
+        "required_literal": "false",
+        "description": "Take profit trigger price"
+      },
+      {
+        "name": "tpStopType",
+        "type": "string",
+        "required": false,
+        "required_literal": "false",
+        "description": "Take profit trigger type: MARK_PRICE or LAST_PRICE"
+      },
+      {
+        "name": "tpOrderType",
+        "type": "string",
+        "required": false,
+        "required_literal": "false",
+        "description": "Take profit trigger place order type: LIMIT or MARKET"
+      },
+      {
+        "name": "tpOrderPrice",
+        "type": "string",
+        "required": false,
+        "required_literal": "false",
+        "description": "Take profit trigger place order price. Required if tpOrderType is LIMIT."
+      },
+      {
+        "name": "slPrice",
+        "type": "string",
+        "required": false,
+        "required_literal": "false",
+        "description": "Stop loss trigger price"
+      },
+      {
+        "name": "slStopType",
+        "type": "string",
+        "required": false,
+        "required_literal": "false",
+        "description": "Stop loss trigger type: MARK_PRICE or LAST_PRICE"
+      },
+      {
+        "name": "slOrderType",
+        "type": "string",
+        "required": false,
+        "required_literal": "false",
+        "description": "Stop loss trigger place order type: LIMIT or MARKET"
+      },
+      {
+        "name": "slOrderPrice",
+        "type": "string",
+        "required": false,
+        "required_literal": "false",
+        "description": "Stop loss trigger place order price. Required if slOrderType is LIMIT."
+      }
+    ],
+    "response_parameters": [
+      {
+        "name": "orderId",
+        "type": "string",
+        "description": "Order id"
+      },
+      {
+        "name": "clientId",
+        "type": "string",
+        "description": "Client id"
+      }
+    ],
+    "request_example": {
+      "symbol": "BTCUSDT",
+      "side": "BUY",
+      "price": "60000",
+      "qty": "0.5",
+      "positionId": "111",
+      "tradeSide": "CLOSE",
+      "orderType": "LIMIT",
+      "reduceOnly": false,
+      "effect": "GTC",
+      "clientId": "1110000aaa",
+      "tpPrice": "61000",
+      "tpStopType": "MARK",
+      "tpOrderType": "LIMIT",
+      "tpOrderPrice": "61000.1"
+    },
+    "response_example": {
+      "orderId": "11111",
+      "clientId": "22222"
+    },
+    "notes": "Tables use MARK_PRICE/LAST_PRICE and orderType; examples use MARK/LAST and type/source. modify_order example includes symbol absent from its request table. No guessed fields are sent by the engine."
+  },
+  "batch_order": {
+    "name": "batch_order",
+    "source": "https://www.bitunix.com/api-docs/futures/trade/batch_order.html",
+    "method": "POST",
+    "path": "/api/v1/futures/trade/batch_order",
+    "public": false,
+    "rate_per_second": 1,
+    "description": "Place orders",
+    "parameters": [
+      {
+        "name": "symbol",
+        "type": "string",
+        "required": true,
+        "required_literal": "true",
+        "description": "Trading pair"
+      },
+      {
+        "name": "orderList",
+        "type": "list",
+        "required": true,
+        "required_literal": "true",
+        "description": "Order list; maximum length 5"
+      },
+      {
+        "name": ">qty",
+        "type": "string",
+        "required": true,
+        "required_literal": "true",
+        "description": "Amount (base coin)"
+      },
+      {
+        "name": ">price",
+        "type": "string",
+        "required": false,
+        "required_literal": "false",
+        "description": "Price of the order. Required if orderType is LIMIT."
+      },
+      {
+        "name": ">side",
+        "type": "string",
+        "required": true,
+        "required_literal": "true",
+        "description": "Order direction: BUY or SELL"
+      },
+      {
+        "name": ">tradeSide",
+        "type": "string",
+        "required": true,
+        "required_literal": "true",
+        "description": "Only required in hedge-mode. Open long BUY/OPEN; open short SELL/OPEN; close long BUY/CLOSE; close short SELL/CLOSE."
+      },
+      {
+        "name": ">positionId",
+        "type": "string",
+        "required": false,
+        "required_literal": "false",
+        "description": "Position ID. Required when tradeSide is CLOSE."
+      },
+      {
+        "name": ">orderType",
+        "type": "string",
+        "required": true,
+        "required_literal": "true",
+        "description": "LIMIT: limit orders; MARKET: market orders"
+      },
+      {
+        "name": ">effect",
+        "type": "string",
+        "required": false,
+        "required_literal": "false",
+        "description": "Order expiration. Required if orderType is LIMIT. IOC immediate or cancel; FOK fill or kill; GTC good till canceled (default); POST_ONLY."
+      },
+      {
+        "name": ">clientId",
+        "type": "string",
+        "required": false,
+        "required_literal": "false",
+        "description": "Customize order ID"
+      },
+      {
+        "name": ">reduceOnly",
+        "type": "boolean",
+        "required": false,
+        "required_literal": "false",
+        "description": "Whether or not to just reduce the position"
+      },
+      {
+        "name": ">tpPrice",
+        "type": "string",
+        "required": false,
+        "required_literal": "false",
+        "description": "Take profit trigger price"
+      },
+      {
+        "name": ">tpStopType",
+        "type": "string",
+        "required": false,
+        "required_literal": "false",
+        "description": "Take profit trigger type: MARK_PRICE or LAST_PRICE"
+      },
+      {
+        "name": ">tpOrderType",
+        "type": "string",
+        "required": false,
+        "required_literal": "false",
+        "description": "Take profit trigger place order type: LIMIT or MARKET"
+      },
+      {
+        "name": ">tpOrderPrice",
+        "type": "string",
+        "required": false,
+        "required_literal": "false",
+        "description": "Take profit trigger place order price. Required if tpOrderType is LIMIT."
+      },
+      {
+        "name": ">slPrice",
+        "type": "string",
+        "required": false,
+        "required_literal": "false",
+        "description": "Stop loss trigger price"
+      },
+      {
+        "name": ">slStopType",
+        "type": "string",
+        "required": false,
+        "required_literal": "false",
+        "description": "Stop loss trigger type: MARK_PRICE or LAST_PRICE"
+      },
+      {
+        "name": ">slOrderType",
+        "type": "string",
+        "required": false,
+        "required_literal": "false",
+        "description": "Stop loss trigger place order type: LIMIT or MARKET"
+      },
+      {
+        "name": ">slOrderPrice",
+        "type": "string",
+        "required": false,
+        "required_literal": "false",
+        "description": "Stop loss trigger place order price. Required if slOrderType is LIMIT."
+      }
+    ],
+    "response_parameters": [
+      {
+        "name": "successList",
+        "type": "list",
+        "description": "Successful order list"
+      },
+      {
+        "name": ">id",
+        "type": "string",
+        "description": "Order id"
+      },
+      {
+        "name": ">clientId",
+        "type": "string",
+        "description": "Client id"
+      },
+      {
+        "name": "failureList",
+        "type": "list",
+        "description": "Failed order list"
+      },
+      {
+        "name": ">clientId",
+        "type": "string",
+        "description": "Client id"
+      },
+      {
+        "name": ">errorMsg",
+        "type": "string",
+        "description": "Error message"
+      },
+      {
+        "name": ">errorCode",
+        "type": "string",
+        "description": "Error code"
+      }
+    ],
+    "request_example": {
+      "symbol": "BTCUSDT",
+      "orderList": [
+        {
+          "side": "BUY",
+          "price": "60000",
+          "qty": "0.5",
+          "orderType": "LIMIT",
+          "reduceOnly": false,
+          "effect": "GTC",
+          "clientId": "c12345",
+          "tpPrice": "61000",
+          "tpStopType": "MARK",
+          "tpOrderType": "LIMIT",
+          "tpOrderPrice": "61000.1",
+          "slPrice": "59000",
+          "slStopType": "LAST",
+          "slOrderType": "MARKET"
+        },
+        {
+          "side": "SELL",
+          "price": "61000",
+          "qty": "0.5",
+          "orderType": "LIMIT",
+          "reduceOnly": false,
+          "effect": "IOC",
+          "clientId": "c12346"
+        }
+      ]
+    },
+    "response_example": {
+      "successList": [
+        {
+          "id": "11111",
+          "clientId": "22222"
+        }
+      ],
+      "failureList": [
+        {
+          "clientId": "22222",
+          "errorMsg": "Insufficient balance",
+          "errorCode": 10012
+        }
+      ]
+    },
+    "notes": "Tables use MARK_PRICE/LAST_PRICE and orderType; examples use MARK/LAST and type/source. modify_order example includes symbol absent from its request table. No guessed fields are sent by the engine."
+  },
+  "cancel_orders": {
+    "name": "cancel_orders",
+    "source": "https://www.bitunix.com/api-docs/futures/trade/cancel_orders.html",
+    "method": "POST",
+    "path": "/api/v1/futures/trade/cancel_orders",
+    "public": false,
+    "rate_per_second": 5,
+    "description": "Cancel orders. Successful interface response is not necessarily equal to success of the operation; use WebSocket push messages as accurate judgment.",
+    "parameters": [
+      {
+        "name": "symbol",
+        "type": "string",
+        "required": true,
+        "required_literal": "true",
+        "description": "Trading pair"
+      },
+      {
+        "name": "orderList",
+        "type": "list",
+        "required": true,
+        "required_literal": "true",
+        "description": "Order parameter list"
+      },
+      {
+        "name": "orderId",
+        "type": "string",
+        "required": false,
+        "required_literal": "false",
+        "description": "Either orderId or clientId required. orderId prevails if both entered. These fields belong in orderList per example."
+      },
+      {
+        "name": "clientId",
+        "type": "string",
+        "required": false,
+        "required_literal": "false",
+        "description": "Customize order ID. Either orderId or clientId required. orderId prevails if both entered. These fields belong in orderList per example."
+      }
+    ],
+    "response_parameters": [
+      {
+        "name": "successList",
+        "type": "list",
+        "description": "Successful order list"
+      },
+      {
+        "name": ">id",
+        "type": "string",
+        "description": "Order id"
+      },
+      {
+        "name": ">clientId",
+        "type": "string",
+        "description": "Client id"
+      },
+      {
+        "name": "failureList",
+        "type": "list",
+        "description": "Failed order list"
+      },
+      {
+        "name": ">id",
+        "type": "string",
+        "description": "Order id"
+      },
+      {
+        "name": ">clientId",
+        "type": "string",
+        "description": "Client id"
+      },
+      {
+        "name": ">errorMsg",
+        "type": "string",
+        "description": "Error message"
+      },
+      {
+        "name": ">errorCode",
+        "type": "string",
+        "description": "Error code"
+      }
+    ],
+    "request_example": {
+      "symbol": "BTCUSDT",
+      "orderList": [
+        {
+          "orderId": "11111"
+        },
+        {
+          "clientId": "22223"
+        }
+      ]
+    },
+    "response_example": {
+      "successList": [
+        {
+          "orderId": "11111",
+          "clientId": "22222"
+        }
+      ],
+      "failureList": [
+        {
+          "orderId": "11112",
+          "clientId": "22223",
+          "errorMsg": "Order status error",
+          "errorCode": 10013
+        }
+      ]
+    },
+    "notes": "Request table does not indent orderId/clientId but example nests them. Validator follows the documented example's orderList structure; both raw rows are retained."
+  },
+  "cancel_all_orders": {
+    "name": "cancel_all_orders",
+    "source": "https://www.bitunix.com/api-docs/futures/trade/cancel_all_orders.html",
+    "method": "POST",
+    "path": "/api/v1/futures/trade/cancel_all_orders",
+    "public": false,
+    "rate_per_second": 10,
+    "description": "Cancel all orders. Successful interface response is not necessarily equal to success of the operation; use WebSocket push messages as accurate judgment.",
+    "parameters": [
+      {
+        "name": "symbol",
+        "type": "string",
+        "required": false,
+        "required_literal": "false",
+        "description": "Trading pair"
+      }
+    ],
+    "response_parameters": [
+      {
+        "name": "successList",
+        "type": "list",
+        "description": "Successful order list"
+      },
+      {
+        "name": ">id",
+        "type": "string",
+        "description": "Order id"
+      },
+      {
+        "name": ">clientId",
+        "type": "string",
+        "description": "Client id"
+      },
+      {
+        "name": "failureList",
+        "type": "list",
+        "description": "Failed order list"
+      },
+      {
+        "name": ">id",
+        "type": "string",
+        "description": "Order id"
+      },
+      {
+        "name": ">clientId",
+        "type": "string",
+        "description": "Client id"
+      },
+      {
+        "name": ">errorMsg",
+        "type": "string",
+        "description": "Error message"
+      },
+      {
+        "name": ">errorCode",
+        "type": "string",
+        "description": "Error code"
+      }
+    ],
+    "request_example": {
+      "symbol": "BTCUSDT"
+    },
+    "response_example": {
+      "successList": [
+        {
+          "orderId": "11111",
+          "clientId": "22222"
+        }
+      ],
+      "failureList": [
+        {
+          "orderId": "11112",
+          "clientId": "22223",
+          "errorMsg": "Order status error",
+          "errorCode": 10013
+        }
+      ]
+    },
+    "notes": ""
+  },
+  "close_all_position": {
+    "name": "close_all_position",
+    "source": "https://www.bitunix.com/api-docs/futures/trade/close_all_position.html",
+    "method": "POST",
+    "path": "/api/v1/futures/trade/close_all_position",
+    "public": false,
+    "rate_per_second": 1,
+    "description": "Close all positions",
+    "parameters": [
+      {
+        "name": "symbol",
+        "type": "string",
+        "required": false,
+        "required_literal": "false",
+        "description": "Trading pair"
+      }
+    ],
+    "response_parameters": [],
+    "request_example": {
+      "symbol": "BTCUSDT"
+    },
+    "response_example": "",
+    "notes": ""
+  },
+  "flash_close_position": {
+    "name": "flash_close_position",
+    "source": "https://www.bitunix.com/api-docs/futures/trade/flash_close_position.html",
+    "method": "POST",
+    "path": "/api/v1/futures/trade/flash_close_position",
+    "public": false,
+    "rate_per_second": 5,
+    "description": "Close position by position id",
+    "parameters": [
+      {
+        "name": "positionId",
+        "type": "String",
+        "required": true,
+        "required_literal": "true",
+        "description": "Position id"
+      }
+    ],
+    "response_parameters": [
+      {
+        "name": "positionId",
+        "type": "string",
+        "description": "Position ID"
+      }
+    ],
+    "request_example": {
+      "positionId": "19848247723672"
+    },
+    "response_example": {
+      "positionId": "19848247723672"
+    },
+    "notes": ""
+  },
+  "modify_order": {
+    "name": "modify_order",
+    "source": "https://www.bitunix.com/api-docs/futures/trade/modify_order.html",
+    "method": "POST",
+    "path": "/api/v1/futures/trade/modify_order",
+    "public": false,
+    "rate_per_second": 10,
+    "description": "Modify pending order TP/SL and/or price/qty. Successful interface response is not necessarily equal to success of the operation; use WebSocket push messages as accurate judgment.",
+    "parameters": [
+      {
+        "name": "orderId",
+        "type": "string",
+        "required": false,
+        "required_literal": "false",
+        "description": "Either orderId or clientId required. orderId prevails if both entered."
+      },
+      {
+        "name": "clientId",
+        "type": "string",
+        "required": false,
+        "required_literal": "false",
+        "description": "Customize order ID. Either orderId or clientId required. orderId prevails if both entered."
+      },
+      {
+        "name": "qty",
+        "type": "string",
+        "required": true,
+        "required_literal": "true",
+        "description": "Amount (base coin)"
+      },
+      {
+        "name": "price",
+        "type": "string",
+        "required": true,
+        "required_literal": "true",
+        "description": "Price of order. Required if orderType is LIMIT."
+      },
+      {
+        "name": "tpPrice",
+        "type": "string",
+        "required": false,
+        "required_literal": "false",
+        "description": "Take profit trigger price"
+      },
+      {
+        "name": "tpStopType",
+        "type": "string",
+        "required": false,
+        "required_literal": "false",
+        "description": "Take profit trigger type: MARK_PRICE or LAST_PRICE"
+      },
+      {
+        "name": "tpOrderType",
+        "type": "string",
+        "required": false,
+        "required_literal": "false",
+        "description": "Take profit trigger place order type: LIMIT or MARKET"
+      },
+      {
+        "name": "tpOrderPrice",
+        "type": "string",
+        "required": false,
+        "required_literal": "false",
+        "description": "Take profit trigger place order price. Required if tpOrderType is LIMIT."
+      },
+      {
+        "name": "slPrice",
+        "type": "string",
+        "required": false,
+        "required_literal": "false",
+        "description": "Stop loss trigger price"
+      },
+      {
+        "name": "slStopType",
+        "type": "string",
+        "required": false,
+        "required_literal": "false",
+        "description": "Stop loss trigger type: MARK_PRICE or LAST_PRICE"
+      },
+      {
+        "name": "slOrderType",
+        "type": "string",
+        "required": false,
+        "required_literal": "false",
+        "description": "Stop loss trigger place order type: LIMIT or MARKET"
+      },
+      {
+        "name": "slOrderPrice",
+        "type": "string",
+        "required": false,
+        "required_literal": "false",
+        "description": "Stop loss trigger place order price. Required if slOrderType is LIMIT."
+      }
+    ],
+    "response_parameters": [
+      {
+        "name": "orderId",
+        "type": "string",
+        "description": "Order id"
+      },
+      {
+        "name": "clientId",
+        "type": "string",
+        "description": "Client id"
+      }
+    ],
+    "request_example": {
+      "orderId": "1111",
+      "symbol": "BTCUSDT",
+      "price": "60000",
+      "qty": "0.5",
+      "tpPrice": "61000",
+      "tpStopType": "MARK",
+      "tpOrderType": "LIMIT",
+      "tpOrderPrice": "61000.1"
+    },
+    "response_example": {
+      "orderId": "11111",
+      "clientId": "22222"
+    },
+    "notes": "Tables use MARK_PRICE/LAST_PRICE and orderType; examples use MARK/LAST and type/source. modify_order example includes symbol absent from its request table. No guessed fields are sent by the engine. Table marks price always required; descriptive condition says LIMIT only. Generic validator conservatively requires the table field."
+  },
+  "get_order_detail": {
+    "name": "get_order_detail",
+    "source": "https://www.bitunix.com/api-docs/futures/trade/get_order_detail.html",
+    "method": "GET",
+    "path": "/api/v1/futures/trade/get_order_detail",
+    "public": false,
+    "rate_per_second": 10,
+    "description": "Get order detail",
+    "parameters": [
+      {
+        "name": "orderId",
+        "type": "string",
+        "required": false,
+        "required_literal": "false",
+        "description": "At least one of orderId/clientId is required"
+      },
+      {
+        "name": "clientId",
+        "type": "string",
+        "required": false,
+        "required_literal": "false",
+        "description": "At least one of orderId/clientId is required"
+      }
+    ],
+    "response_parameters": [
+      {
+        "name": "orderId",
+        "type": "string",
+        "description": "Order id"
+      },
+      {
+        "name": "symbol",
+        "type": "string",
+        "description": "Trading pair"
+      },
+      {
+        "name": "qty",
+        "type": "string",
+        "description": "Amount (base coin)"
+      },
+      {
+        "name": "tradeQty",
+        "type": "string",
+        "description": "Fill amount (base coin)"
+      },
+      {
+        "name": "positionMode",
+        "type": "string",
+        "description": "ONE_WAY or HEDGE"
+      },
+      {
+        "name": "marginMode",
+        "type": "string",
+        "description": "ISOLATION or CROSS"
+      },
+      {
+        "name": "leverage",
+        "type": "int",
+        "description": "Leverage"
+      },
+      {
+        "name": "price",
+        "type": "string",
+        "description": "Price of order. Required if orderType is LIMIT."
+      },
+      {
+        "name": "side",
+        "type": "string",
+        "description": "Order direction BUY or SELL"
+      },
+      {
+        "name": "orderType",
+        "type": "string",
+        "description": "LIMIT: limit orders; MARKET: market orders"
+      },
+      {
+        "name": "effect",
+        "type": "string",
+        "description": "IOC immediate or cancel; FOK fill or kill; GTC good till canceled (default); POST_ONLY. Required for LIMIT."
+      },
+      {
+        "name": "clientId",
+        "type": "string",
+        "description": "Customize order ID"
+      },
+      {
+        "name": "reduceOnly",
+        "type": "boolean",
+        "description": "Whether or not to just reduce the position"
+      },
+      {
+        "name": "status",
+        "type": "string",
+        "description": "INIT prepare; NEW pending; PART_FILLED partially filled; CANCELED canceled; FILLED all filled"
+      },
+      {
+        "name": "fee",
+        "type": "string",
+        "description": "Fee"
+      },
+      {
+        "name": "realizedPNL",
+        "type": "string",
+        "description": "Realized PnL"
+      },
+      {
+        "name": "tpPrice",
+        "type": "string",
+        "description": "Take profit trigger price"
+      },
+      {
+        "name": "tpStopType",
+        "type": "string",
+        "description": "MARK_PRICE or LAST_PRICE"
+      },
+      {
+        "name": "tpOrderType",
+        "type": "string",
+        "description": "LIMIT or MARKET"
+      },
+      {
+        "name": "tpOrderPrice",
+        "type": "string",
+        "description": "Take profit order price; required for LIMIT"
+      },
+      {
+        "name": "slPrice",
+        "type": "string",
+        "description": "Stop loss trigger price"
+      },
+      {
+        "name": "slStopType",
+        "type": "string",
+        "description": "MARK_PRICE or LAST_PRICE"
+      },
+      {
+        "name": "slOrderType",
+        "type": "string",
+        "description": "LIMIT or MARKET"
+      },
+      {
+        "name": "slOrderPrice",
+        "type": "string",
+        "description": "Stop loss order price; required for LIMIT"
+      },
+      {
+        "name": "ctime",
+        "type": "int64",
+        "description": "Create timestamp"
+      },
+      {
+        "name": "mtime",
+        "type": "int64",
+        "description": "Latest modify timestamp"
+      }
+    ],
+    "request_example": {
+      "orderId": "12345"
+    },
+    "response_example": {
+      "orderId": "11111",
+      "qty": "1",
+      "tradeQty": "0.5",
+      "price": "60000",
+      "symbol": "BTCUSDT",
+      "positionMode": "HEDGE",
+      "marginMode": "ISOLATION",
+      "leverage": 15,
+      "status": "PART_FILLED",
+      "fee": "0.01",
+      "realizedPNL": "1.78",
+      "type": "LIMIT",
+      "effect": "GTC",
+      "reduceOnly": false,
+      "clientId": "22222",
+      "tpPrice": "61000",
+      "tpStopType": "MARK",
+      "tpOrderType": "LIMIT",
+      "tpOrderPrice": "61000.1",
+      "slPrice": "59000",
+      "slStopType": "MARK",
+      "slOrderType": "LIMIT",
+      "slOrderPrice": "59000.1",
+      "source": "api",
+      "ctime": 1597026383085,
+      "mtime": 1597026383085
+    },
+    "notes": "Tables use MARK_PRICE/LAST_PRICE and orderType; examples use MARK/LAST and type/source. modify_order example includes symbol absent from its request table. No guessed fields are sent by the engine."
+  },
+  "get_pending_orders": {
+    "name": "get_pending_orders",
+    "source": "https://www.bitunix.com/api-docs/futures/trade/get_pending_orders.html",
+    "method": "GET",
+    "path": "/api/v1/futures/trade/get_pending_orders",
+    "public": false,
+    "rate_per_second": 10,
+    "description": "Get pending orders; sort by create time descending",
+    "parameters": [
+      {
+        "name": "symbol",
+        "type": "string",
+        "required": false,
+        "required_literal": "false",
+        "description": "Trading pair"
+      },
+      {
+        "name": "orderId",
+        "type": "string",
+        "required": false,
+        "required_literal": "false",
+        "description": "Order id"
+      },
+      {
+        "name": "clientId",
+        "type": "string",
+        "required": false,
+        "required_literal": "false",
+        "description": "Client id"
+      },
+      {
+        "name": "status",
+        "type": "string",
+        "required": false,
+        "required_literal": "false",
+        "description": "NEW or PART_FILLED"
+      },
+      {
+        "name": "startTime",
+        "type": "int64",
+        "required": false,
+        "required_literal": "false",
+        "description": "Start timestamp. Unix timestamp in milliseconds, e.g. 1597026383085"
+      },
+      {
+        "name": "endTime",
+        "type": "int64",
+        "required": false,
+        "required_literal": "false",
+        "description": "Start timestamp (source wording). Unix timestamp in milliseconds, e.g. 1597026683085"
+      },
+      {
+        "name": "skip",
+        "type": "int64",
+        "required": false,
+        "required_literal": "false",
+        "description": "Skip order count; default: 0"
+      },
+      {
+        "name": "limit",
+        "type": "int64",
+        "required": false,
+        "required_literal": "false",
+        "description": "Number of queries: maximum 100, default 10"
+      }
+    ],
+    "response_parameters": [
+      {
+        "name": "orderList",
+        "type": "list",
+        "description": "Order list"
+      },
+      {
+        "name": ">orderId",
+        "type": "string",
+        "description": "Order id"
+      },
+      {
+        "name": ">symbol",
+        "type": "string",
+        "description": "Trading pair"
+      },
+      {
+        "name": ">qty",
+        "type": "string",
+        "description": "Amount (base coin)"
+      },
+      {
+        "name": ">tradeQty",
+        "type": "string",
+        "description": "Fill amount (base coin)"
+      },
+      {
+        "name": ">positionMode",
+        "type": "string",
+        "description": "ONE_WAY or HEDGE"
+      },
+      {
+        "name": ">marginMode",
+        "type": "string",
+        "description": "ISOLATION or CROSS"
+      },
+      {
+        "name": ">leverage",
+        "type": "int",
+        "description": "Leverage"
+      },
+      {
+        "name": ">price",
+        "type": "string",
+        "description": "Price of order. Required if orderType is LIMIT."
+      },
+      {
+        "name": ">side",
+        "type": "string",
+        "description": "Order direction BUY or SELL"
+      },
+      {
+        "name": ">orderType",
+        "type": "string",
+        "description": "LIMIT: limit orders; MARKET: market orders"
+      },
+      {
+        "name": ">effect",
+        "type": "string",
+        "description": "IOC immediate or cancel; FOK fill or kill; GTC good till canceled (default); POST_ONLY. Required for LIMIT."
+      },
+      {
+        "name": ">clientId",
+        "type": "string",
+        "description": "Customize order ID"
+      },
+      {
+        "name": ">reduceOnly",
+        "type": "boolean",
+        "description": "Whether or not to just reduce the position"
+      },
+      {
+        "name": ">status",
+        "type": "string",
+        "description": "INIT prepare; NEW pending; PART_FILLED partially filled; CANCELED canceled; FILLED all filled"
+      },
+      {
+        "name": ">fee",
+        "type": "string",
+        "description": "Fee"
+      },
+      {
+        "name": ">realizedPNL",
+        "type": "string",
+        "description": "Realized PnL"
+      },
+      {
+        "name": ">tpPrice",
+        "type": "string",
+        "description": "Take profit trigger price"
+      },
+      {
+        "name": ">tpStopType",
+        "type": "string",
+        "description": "MARK_PRICE or LAST_PRICE"
+      },
+      {
+        "name": ">tpOrderType",
+        "type": "string",
+        "description": "LIMIT or MARKET"
+      },
+      {
+        "name": ">tpOrderPrice",
+        "type": "string",
+        "description": "Take profit order price; required for LIMIT"
+      },
+      {
+        "name": ">slPrice",
+        "type": "string",
+        "description": "Stop loss trigger price"
+      },
+      {
+        "name": ">slStopType",
+        "type": "string",
+        "description": "MARK_PRICE or LAST_PRICE"
+      },
+      {
+        "name": ">slOrderType",
+        "type": "string",
+        "description": "LIMIT or MARKET"
+      },
+      {
+        "name": ">slOrderPrice",
+        "type": "string",
+        "description": "Stop loss order price; required for LIMIT"
+      },
+      {
+        "name": ">ctime",
+        "type": "int64",
+        "description": "Create timestamp"
+      },
+      {
+        "name": ">mtime",
+        "type": "int64",
+        "description": "Latest modify timestamp"
+      },
+      {
+        "name": "total",
+        "type": "int64",
+        "description": "Total count"
+      }
+    ],
+    "request_example": {
+      "symbol": "BTCUSDT"
+    },
+    "response_example": {
+      "orderList": [
+        {
+          "orderId": "11111",
+          "qty": "1",
+          "tradeQty": "0.5",
+          "price": "60000",
+          "symbol": "BTCUSDT",
+          "positionMode": "HEDGE",
+          "marginMode": "ISOLATION",
+          "leverage": 15,
+          "status": "NEW",
+          "fee": "0.01",
+          "realizedPNL": "1.78",
+          "type": "LIMIT",
+          "effect": "GTC",
+          "reduceOnly": false,
+          "clientId": "22222",
+          "tpPrice": "61000",
+          "tpStopType": "MARK",
+          "tpOrderType": "LIMIT",
+          "tpOrderPrice": "61000.1",
+          "slPrice": "59000",
+          "slStopType": "MARK",
+          "slOrderType": "LIMIT",
+          "slOrderPrice": "59000.1",
+          "source": "api",
+          "ctime": 1597026383085,
+          "mtime": 1597026383085
+        }
+      ],
+      "total": 10
+    },
+    "notes": "Tables use MARK_PRICE/LAST_PRICE and orderType; examples use MARK/LAST and type/source. modify_order example includes symbol absent from its request table. No guessed fields are sent by the engine."
+  },
+  "get_history_orders": {
+    "name": "get_history_orders",
+    "source": "https://www.bitunix.com/api-docs/futures/trade/get_history_orders.html",
+    "method": "GET",
+    "path": "/api/v1/futures/trade/get_history_orders",
+    "public": false,
+    "rate_per_second": 10,
+    "description": "Get history orders; sort by create time descending",
+    "parameters": [
+      {
+        "name": "symbol",
+        "type": "string",
+        "required": false,
+        "required_literal": "false",
+        "description": "Trading pair"
+      },
+      {
+        "name": "orderId",
+        "type": "string",
+        "required": false,
+        "required_literal": "false",
+        "description": "Order id"
+      },
+      {
+        "name": "clientId",
+        "type": "string",
+        "required": false,
+        "required_literal": "false",
+        "description": "Client id"
+      },
+      {
+        "name": "status",
+        "type": "string",
+        "required": false,
+        "required_literal": "false",
+        "description": "FILLED CANCELED PART_FILLED_CANCELED EXPIRED"
+      },
+      {
+        "name": "type",
+        "type": "string",
+        "required": false,
+        "required_literal": "false",
+        "description": "LIMIT or MARKET; default all"
+      },
+      {
+        "name": "startTime",
+        "type": "int64",
+        "required": false,
+        "required_literal": "false",
+        "description": "Start timestamp. Unix timestamp in milliseconds, e.g. 1597026383085"
+      },
+      {
+        "name": "endTime",
+        "type": "int64",
+        "required": false,
+        "required_literal": "false",
+        "description": "Start timestamp (source wording). Unix timestamp in milliseconds, e.g. 1597026683085"
+      },
+      {
+        "name": "skip",
+        "type": "int64",
+        "required": false,
+        "required_literal": "false",
+        "description": "Skip order count; default: 0"
+      },
+      {
+        "name": "limit",
+        "type": "int64",
+        "required": false,
+        "required_literal": "false",
+        "description": "Number of queries: maximum 100, default 10"
+      },
+      {
+        "name": "subAccountId",
+        "type": "int64",
+        "required": false,
+        "required_literal": "false",
+        "description": "With subAccountUid: historical orders for sub-account only. Without it: main account (source wording)."
+      },
+      {
+        "name": "queryCanceled",
+        "type": "boolean",
+        "required": false,
+        "required_literal": "false",
+        "description": "Default false. true: canceled only, last 3 days. false: excludes canceled, last 90 days."
+      }
+    ],
+    "response_parameters": [
+      {
+        "name": "orderList",
+        "type": "list",
+        "description": "Order list"
+      },
+      {
+        "name": ">orderId",
+        "type": "string",
+        "description": "Order id"
+      },
+      {
+        "name": ">symbol",
+        "type": "string",
+        "description": "Trading pair"
+      },
+      {
+        "name": ">qty",
+        "type": "string",
+        "description": "Amount (base coin)"
+      },
+      {
+        "name": ">tradeQty",
+        "type": "string",
+        "description": "Fill amount (base coin)"
+      },
+      {
+        "name": ">positionMode",
+        "type": "string",
+        "description": "ONE_WAY or HEDGE"
+      },
+      {
+        "name": ">marginMode",
+        "type": "string",
+        "description": "ISOLATION or CROSS"
+      },
+      {
+        "name": ">leverage",
+        "type": "int",
+        "description": "Leverage"
+      },
+      {
+        "name": ">price",
+        "type": "string",
+        "description": "Price of order. Required if orderType is LIMIT."
+      },
+      {
+        "name": ">side",
+        "type": "string",
+        "description": "Order direction BUY or SELL"
+      },
+      {
+        "name": ">orderType",
+        "type": "string",
+        "description": "LIMIT: limit orders; MARKET: market orders"
+      },
+      {
+        "name": ">effect",
+        "type": "string",
+        "description": "IOC immediate or cancel; FOK fill or kill; GTC good till canceled (default); POST_ONLY. Required for LIMIT."
+      },
+      {
+        "name": ">clientId",
+        "type": "string",
+        "description": "Customize order ID"
+      },
+      {
+        "name": ">reduceOnly",
+        "type": "boolean",
+        "description": "Whether or not to just reduce the position"
+      },
+      {
+        "name": ">status",
+        "type": "string",
+        "description": "INIT prepare; NEW pending; PART_FILLED partially filled; CANCELED canceled; FILLED all filled"
+      },
+      {
+        "name": ">fee",
+        "type": "string",
+        "description": "Fee"
+      },
+      {
+        "name": ">realizedPNL",
+        "type": "string",
+        "description": "Realized PnL"
+      },
+      {
+        "name": ">tpPrice",
+        "type": "string",
+        "description": "Take profit trigger price"
+      },
+      {
+        "name": ">tpStopType",
+        "type": "string",
+        "description": "MARK_PRICE or LAST_PRICE"
+      },
+      {
+        "name": ">tpOrderType",
+        "type": "string",
+        "description": "LIMIT or MARKET"
+      },
+      {
+        "name": ">tpOrderPrice",
+        "type": "string",
+        "description": "Take profit order price; required for LIMIT"
+      },
+      {
+        "name": ">slPrice",
+        "type": "string",
+        "description": "Stop loss trigger price"
+      },
+      {
+        "name": ">slStopType",
+        "type": "string",
+        "description": "MARK_PRICE or LAST_PRICE"
+      },
+      {
+        "name": ">slOrderType",
+        "type": "string",
+        "description": "LIMIT or MARKET"
+      },
+      {
+        "name": ">slOrderPrice",
+        "type": "string",
+        "description": "Stop loss order price; required for LIMIT"
+      },
+      {
+        "name": ">ctime",
+        "type": "int64",
+        "description": "Create timestamp"
+      },
+      {
+        "name": ">mtime",
+        "type": "int64",
+        "description": "Latest modify timestamp"
+      },
+      {
+        "name": ">subAccountId",
+        "type": "int64",
+        "description": "Order account id"
+      },
+      {
+        "name": "total",
+        "type": "int64",
+        "description": "Total count"
+      }
+    ],
+    "request_example": {
+      "symbol": "BTCUSDT"
+    },
+    "response_example": {
+      "orderList": [
+        {
+          "orderId": "11111",
+          "qty": "1",
+          "tradeQty": "0.5",
+          "price": "60000",
+          "symbol": "BTCUSDT",
+          "positionMode": "HEDGE",
+          "marginMode": "ISOLATION",
+          "leverage": 15,
+          "status": "CANCELED",
+          "fee": "0.01",
+          "realizedPNL": "1.78",
+          "type": "LIMIT",
+          "effect": "GTC",
+          "reduceOnly": false,
+          "clientId": "22222",
+          "tpPrice": "61000",
+          "tpStopType": "MARK",
+          "tpOrderType": "LIMIT",
+          "tpOrderPrice": "61000.1",
+          "slPrice": "59000",
+          "slStopType": "MARK",
+          "slOrderType": "LIMIT",
+          "slOrderPrice": "59000.1",
+          "source": "api",
+          "ctime": 1597026383085,
+          "mtime": 1597026383085
+        }
+      ],
+      "total": 10
+    },
+    "notes": "Tables use MARK_PRICE/LAST_PRICE and orderType; examples use MARK/LAST and type/source. modify_order example includes symbol absent from its request table. No guessed fields are sent by the engine."
+  },
+  "get_history_trades": {
+    "name": "get_history_trades",
+    "source": "https://www.bitunix.com/api-docs/futures/trade/get_history_trades.html",
+    "method": "GET",
+    "path": "/api/v1/futures/trade/get_history_trades",
+    "public": false,
+    "rate_per_second": 10,
+    "description": "Get history trades; sort by create time descending",
+    "parameters": [
+      {
+        "name": "symbol",
+        "type": "string",
+        "required": false,
+        "required_literal": "false",
+        "description": "Trading pair"
+      },
+      {
+        "name": "orderId",
+        "type": "string",
+        "required": false,
+        "required_literal": "false",
+        "description": "Order id"
+      },
+      {
+        "name": "positionId",
+        "type": "string",
+        "required": false,
+        "required_literal": "false",
+        "description": "Position id"
+      },
+      {
+        "name": "startTime",
+        "type": "int64",
+        "required": false,
+        "required_literal": "false",
+        "description": "Start timestamp. Unix timestamp in milliseconds, e.g. 1597026383085"
+      },
+      {
+        "name": "endTime",
+        "type": "int64",
+        "required": false,
+        "required_literal": "false",
+        "description": "Start timestamp (source wording). Unix timestamp in milliseconds, e.g. 1597026683085"
+      },
+      {
+        "name": "skip",
+        "type": "int64",
+        "required": false,
+        "required_literal": "false",
+        "description": "Skip order count; default: 0"
+      },
+      {
+        "name": "limit",
+        "type": "int64",
+        "required": false,
+        "required_literal": "false",
+        "description": "Number of queries: maximum 100, default 10"
+      }
+    ],
+    "response_parameters": [
+      {
+        "name": "tradeList",
+        "type": "list",
+        "description": "Trade list"
+      },
+      {
+        "name": ">tradeId",
+        "type": "string",
+        "description": "Trade id"
+      },
+      {
+        "name": ">orderId",
+        "type": "string",
+        "description": "Order id"
+      },
+      {
+        "name": ">symbol",
+        "type": "string",
+        "description": "Trading pair"
+      },
+      {
+        "name": ">qty",
+        "type": "string",
+        "description": "Amount (base coin)"
+      },
+      {
+        "name": ">positionMode",
+        "type": "string",
+        "description": "ONE_WAY or HEDGE"
+      },
+      {
+        "name": ">marginMode",
+        "type": "string",
+        "description": "ISOLATION or CROSS"
+      },
+      {
+        "name": ">leverage",
+        "type": "int",
+        "description": "Leverage"
+      },
+      {
+        "name": ">price",
+        "type": "string",
+        "description": "Order price. Required for LIMIT."
+      },
+      {
+        "name": ">side",
+        "type": "string",
+        "description": "Order direction BUY or SELL"
+      },
+      {
+        "name": ">orderType",
+        "type": "string",
+        "description": "LIMIT or MARKET"
+      },
+      {
+        "name": ">effect",
+        "type": "string",
+        "description": "IOC/FOK/GTC(default)/POST_ONLY. Required for LIMIT."
+      },
+      {
+        "name": ">clientId",
+        "type": "string",
+        "description": "Customize order ID"
+      },
+      {
+        "name": ">reduceOnly",
+        "type": "boolean",
+        "description": "Whether or not to just reduce position"
+      },
+      {
+        "name": ">fee",
+        "type": "string",
+        "description": "Fee"
+      },
+      {
+        "name": ">realizedPNL",
+        "type": "string",
+        "description": "Realized PnL"
+      },
+      {
+        "name": ">ctime",
+        "type": "int64",
+        "description": "Create timestamp"
+      },
+      {
+        "name": ">roleType",
+        "type": "string",
+        "description": "Trader tag: TAKER: maker; MAKER: maker (source wording)"
+      },
+      {
+        "name": "total",
+        "type": "int64",
+        "description": "Total count"
+      }
+    ],
+    "request_example": {
+      "symbol": "BTCUSDT"
+    },
+    "response_example": {
+      "tradeList": [
+        {
+          "tradeId": "123",
+          "orderId": "11111",
+          "qty": "1",
+          "price": "60000",
+          "symbol": "BTCUSDT",
+          "positionMode": "HEDGE",
+          "marginMode": "ISOLATION",
+          "leverage": 15,
+          "fee": "0.01",
+          "realizedPNL": "1.78",
+          "type": "LIMIT",
+          "effect": "GTC",
+          "reduceOnly": false,
+          "clientId": "22222",
+          "source": "api",
+          "ctime": 1597026383085,
+          "roleType": "TAKER"
+        }
+      ],
+      "total": 10
+    },
+    "notes": "Tables use MARK_PRICE/LAST_PRICE and orderType; examples use MARK/LAST and type/source. modify_order example includes symbol absent from its request table. No guessed fields are sent by the engine. roleType labels have an upstream typo; not corrected in transcription."
+  },
+  "place_position_tp_sl_order": {
+    "name": "place_position_tp_sl_order",
+    "source": "https://www.bitunix.com/api-docs/futures/tp_sl/place_position_tp_sl_order.html",
+    "method": "POST",
+    "path": "/api/v1/futures/tpsl/position/place_order",
+    "public": false,
+    "rate_per_second": 10,
+    "description": "Place position TP/SL: triggered closes current whole position at market; only one position TP/SL per position.",
+    "parameters": [
+      {
+        "name": "symbol",
+        "type": "string",
+        "required": true,
+        "required_literal": "true",
+        "description": "Trading pair"
+      },
+      {
+        "name": "positionId",
+        "type": "string",
+        "required": true,
+        "required_literal": "true",
+        "description": "Position ID associated with TP/SL"
+      },
+      {
+        "name": "tpPrice",
+        "type": "string",
+        "required": false,
+        "required_literal": "false",
+        "description": "Take-profit trigger price. At least one of tpPrice or slPrice is required."
+      },
+      {
+        "name": "tpStopType",
+        "type": "string",
+        "required": false,
+        "required_literal": "false",
+        "description": "Take-profit trigger type: LAST_PRICE, MARK_PRICE. Default is market price."
+      },
+      {
+        "name": "slPrice",
+        "type": "string",
+        "required": false,
+        "required_literal": "false",
+        "description": "Stop-loss trigger price. At least one of tpPrice or slPrice is required."
+      },
+      {
+        "name": "slStopType",
+        "type": "string",
+        "required": false,
+        "required_literal": "false",
+        "description": "Stop-loss trigger type: LAST_PRICE, MARK_PRICE. Default is market price."
+      }
+    ],
+    "response_parameters": [
+      {
+        "name": "orderId",
+        "type": "string",
+        "description": "TP/SL Order ID"
+      }
+    ],
+    "request_example": {
+      "symbol": "BTCUSDT",
+      "positionId": "111",
+      "tpPrice": "12",
+      "tpStopType": "LAST_PRICE",
+      "slPrice": "9",
+      "slStopType": "LAST_PRICE"
+    },
+    "response_example": {
+      "orderId": "11111"
+    },
+    "notes": ""
+  },
+  "modify_position_tp_sl_order": {
+    "name": "modify_position_tp_sl_order",
+    "source": "https://www.bitunix.com/api-docs/futures/tp_sl/modify_position_tp_sl_order.html",
+    "method": "POST",
+    "path": "/api/v1/futures/tpsl/position/modify_order",
+    "public": false,
+    "rate_per_second": 10,
+    "description": "Modify position TP/SL order",
+    "parameters": [
+      {
+        "name": "symbol",
+        "type": "string",
+        "required": true,
+        "required_literal": "true",
+        "description": "Trading pair"
+      },
+      {
+        "name": "positionId",
+        "type": "string",
+        "required": true,
+        "required_literal": "true",
+        "description": "Position ID associated with TP/SL"
+      },
+      {
+        "name": "tpPrice",
+        "type": "string",
+        "required": false,
+        "required_literal": "false",
+        "description": "Take-profit trigger price. At least one of tpPrice or slPrice is required."
+      },
+      {
+        "name": "tpStopType",
+        "type": "string",
+        "required": false,
+        "required_literal": "false",
+        "description": "Take-profit trigger type: LAST_PRICE, MARK_PRICE. Default is market price."
+      },
+      {
+        "name": "slPrice",
+        "type": "string",
+        "required": false,
+        "required_literal": "false",
+        "description": "Stop-loss trigger price. At least one of tpPrice or slPrice is required."
+      },
+      {
+        "name": "slStopType",
+        "type": "string",
+        "required": false,
+        "required_literal": "false",
+        "description": "Stop-loss trigger type: LAST_PRICE, MARK_PRICE. Default is market price."
+      }
+    ],
+    "response_parameters": [
+      {
+        "name": "orderId",
+        "type": "string",
+        "description": "TP/SL Order ID"
+      }
+    ],
+    "request_example": {
+      "symbol": "BTCUSDT",
+      "positionId": "11",
+      "tpPrice": "12",
+      "tpStopType": "LAST_PRICE",
+      "slPrice": "9",
+      "slStopType": "LAST_PRICE"
+    },
+    "response_example": {
+      "orderId": "11111"
+    },
+    "notes": ""
+  },
+  "place_tp_sl_order": {
+    "name": "place_tp_sl_order",
+    "source": "https://www.bitunix.com/api-docs/futures/tp_sl/place_tp_sl_order.html",
+    "method": "POST",
+    "path": "/api/v1/futures/tpsl/place_order",
+    "public": false,
+    "rate_per_second": 10,
+    "description": "Place TP/SL order",
+    "parameters": [
+      {
+        "name": "symbol",
+        "type": "string",
+        "required": true,
+        "required_literal": "true",
+        "description": "Trading pair"
+      },
+      {
+        "name": "positionId",
+        "type": "string",
+        "required": true,
+        "required_literal": "true",
+        "description": "Position ID associated with TP/SL"
+      },
+      {
+        "name": "tpPrice",
+        "type": "string",
+        "required": false,
+        "required_literal": "false",
+        "description": "Take-profit trigger price. At least one of tpPrice or slPrice is required."
+      },
+      {
+        "name": "tpStopType",
+        "type": "string",
+        "required": false,
+        "required_literal": "false",
+        "description": "Take-profit trigger type: LAST_PRICE, MARK_PRICE. Default is market price."
+      },
+      {
+        "name": "slPrice",
+        "type": "string",
+        "required": false,
+        "required_literal": "false",
+        "description": "Stop-loss trigger price. At least one of tpPrice or slPrice is required."
+      },
+      {
+        "name": "slStopType",
+        "type": "string",
+        "required": false,
+        "required_literal": "false",
+        "description": "Stop-loss trigger type: LAST_PRICE, MARK_PRICE. Default is market price."
+      },
+      {
+        "name": "tpOrderType",
+        "type": "string",
+        "required": false,
+        "required_literal": "false",
+        "description": "Take-profit order type LIMIT or MARKET. Default is market."
+      },
+      {
+        "name": "tpOrderPrice",
+        "type": "string",
+        "required": false,
+        "required_literal": "false",
+        "description": "Take-profit order price"
+      },
+      {
+        "name": "slOrderType",
+        "type": "string",
+        "required": false,
+        "required_literal": "false",
+        "description": "Stop-loss order type LIMIT or MARKET. Default is market."
+      },
+      {
+        "name": "slOrderPrice",
+        "type": "string",
+        "required": false,
+        "required_literal": "false",
+        "description": "Stop-loss order price"
+      },
+      {
+        "name": "tpQty",
+        "type": "string",
+        "required": false,
+        "required_literal": "false",
+        "description": "Take-profit order quantity (base coin). At least one of tpQty or slQty is required."
+      },
+      {
+        "name": "slQty",
+        "type": "string",
+        "required": false,
+        "required_literal": "false",
+        "description": "Stop-loss order quantity (base coin). At least one of tpQty or slQty is required."
+      }
+    ],
+    "response_parameters": [
+      {
+        "name": "orderId",
+        "type": "string",
+        "description": "TP/SL Order ID"
+      }
+    ],
+    "request_example": {
+      "symbol": "BTCUSDT",
+      "positionId": "111",
+      "tpPrice": "12",
+      "tpStopType": "LAST_PRICE",
+      "slPrice": "9",
+      "slStopType": "LAST_PRICE",
+      "tpOrderType": "LIMIT",
+      "tpOrderPrice": "11",
+      "slOrderType": "LIMIT",
+      "slOrderPrice": "8",
+      "tpQty": "1",
+      "slQty": "1"
+    },
+    "response_example": {
+      "orderId": "11111"
+    },
+    "notes": ""
+  },
+  "modify_tp_sl_order": {
+    "name": "modify_tp_sl_order",
+    "source": "https://www.bitunix.com/api-docs/futures/tp_sl/modify_tp_sl_order.html",
+    "method": "POST",
+    "path": "/api/v1/futures/tpsl/modify_order",
+    "public": false,
+    "rate_per_second": 10,
+    "description": "Modify TP/SL order",
+    "parameters": [
+      {
+        "name": "orderId",
+        "type": "string",
+        "required": true,
+        "required_literal": "true",
+        "description": "TP/SL Order ID"
+      },
+      {
+        "name": "tpPrice",
+        "type": "string",
+        "required": false,
+        "required_literal": "false",
+        "description": "Take-profit trigger price. At least one of tpPrice or slPrice is required."
+      },
+      {
+        "name": "tpStopType",
+        "type": "string",
+        "required": false,
+        "required_literal": "false",
+        "description": "Take-profit trigger type: LAST_PRICE, MARK_PRICE. Default is market price."
+      },
+      {
+        "name": "slPrice",
+        "type": "string",
+        "required": false,
+        "required_literal": "false",
+        "description": "Stop-loss trigger price. At least one of tpPrice or slPrice is required."
+      },
+      {
+        "name": "slStopType",
+        "type": "string",
+        "required": false,
+        "required_literal": "false",
+        "description": "Stop-loss trigger type: LAST_PRICE, MARK_PRICE. Default is market price."
+      },
+      {
+        "name": "tpOrderType",
+        "type": "string",
+        "required": false,
+        "required_literal": "false",
+        "description": "Take-profit order type LIMIT or MARKET. Default is market."
+      },
+      {
+        "name": "tpOrderPrice",
+        "type": "string",
+        "required": false,
+        "required_literal": "false",
+        "description": "Take-profit order price"
+      },
+      {
+        "name": "slOrderType",
+        "type": "string",
+        "required": false,
+        "required_literal": "false",
+        "description": "Stop-loss order type LIMIT or MARKET. Default is market."
+      },
+      {
+        "name": "slOrderPrice",
+        "type": "string",
+        "required": false,
+        "required_literal": "false",
+        "description": "Stop-loss order price"
+      },
+      {
+        "name": "tpQty",
+        "type": "string",
+        "required": false,
+        "required_literal": "false",
+        "description": "Take-profit order quantity (base coin). At least one of tpQty or slQty is required."
+      },
+      {
+        "name": "slQty",
+        "type": "string",
+        "required": false,
+        "required_literal": "false",
+        "description": "Stop-loss order quantity (base coin). At least one of tpQty or slQty is required."
+      }
+    ],
+    "response_parameters": [
+      {
+        "name": "orderId",
+        "type": "string",
+        "description": "TP/SL Order ID"
+      }
+    ],
+    "request_example": {
+      "orderId": "123",
+      "tpPrice": "12",
+      "tpStopType": "LAST_PRICE",
+      "slPrice": "9",
+      "slStopType": "LAST_PRICE",
+      "tpOrderType": "LIMIT",
+      "tpOrderPrice": "11",
+      "slOrderType": "LIMIT",
+      "slOrderPrice": "8",
+      "tpQty": "1",
+      "slQty": "1"
+    },
+    "response_example": {
+      "orderId": "11111"
+    },
+    "notes": ""
+  },
+  "cancel_tp_sl_order": {
+    "name": "cancel_tp_sl_order",
+    "source": "https://www.bitunix.com/api-docs/futures/tp_sl/cancel_tp_sl_order.html",
+    "method": "POST",
+    "path": "/api/v1/futures/tpsl/cancel_order",
+    "public": false,
+    "rate_per_second": 10,
+    "description": "Cancel TP/SL order. Successful interface response is not necessarily equal to success of the operation; use WebSocket push messages as accurate judgment.",
+    "parameters": [
+      {
+        "name": "symbol",
+        "type": "string",
+        "required": true,
+        "required_literal": "true",
+        "description": "Coin pair"
+      },
+      {
+        "name": "orderId",
+        "type": "string",
+        "required": true,
+        "required_literal": "true",
+        "description": "TP/SL Order ID"
+      }
+    ],
+    "response_parameters": [
+      {
+        "name": "orderId",
+        "type": "string",
+        "description": "TP/SL Order ID"
+      }
+    ],
+    "request_example": {
+      "symbol": "BTCUSDT",
+      "orderId": "12"
+    },
+    "response_example": {
+      "orderId": "11111"
+    },
+    "notes": ""
+  },
+  "get_pending_tp_sl_order": {
+    "name": "get_pending_tp_sl_order",
+    "source": "https://www.bitunix.com/api-docs/futures/tp_sl/get_pending_tp_sl_order.html",
+    "method": "GET",
+    "path": "/api/v1/futures/tpsl/get_pending_orders",
+    "public": false,
+    "rate_per_second": 10,
+    "description": "Get pending TP/SL orders",
+    "parameters": [
+      {
+        "name": "symbol",
+        "type": "string",
+        "required": false,
+        "required_literal": "false",
+        "description": "Trading pair"
+      },
+      {
+        "name": "positionId",
+        "type": "string",
+        "required": false,
+        "required_literal": "false",
+        "description": "Position id"
+      },
+      {
+        "name": "side",
+        "type": "int32",
+        "required": false,
+        "required_literal": "false",
+        "description": "Order side"
+      },
+      {
+        "name": "positionMode",
+        "type": "int32",
+        "required": false,
+        "required_literal": "false",
+        "description": "Order position mode"
+      },
+      {
+        "name": "skip",
+        "type": "int64",
+        "required": false,
+        "required_literal": "false",
+        "description": "Skip order count; default: 0"
+      },
+      {
+        "name": "limit",
+        "type": "int64",
+        "required": false,
+        "required_literal": "false",
+        "description": "Number of queries: maximum 100, default 10"
+      }
+    ],
+    "response_parameters": [
+      {
+        "name": "id",
+        "type": "string",
+        "description": "Order id"
+      },
+      {
+        "name": "positionId",
+        "type": "string",
+        "description": "Position id"
+      },
+      {
+        "name": "symbol",
+        "type": "string",
+        "description": "Coin pair"
+      },
+      {
+        "name": "base",
+        "type": "string",
+        "description": "Base"
+      },
+      {
+        "name": "quote",
+        "type": "string",
+        "description": "Quote"
+      },
+      {
+        "name": "tpPrice",
+        "type": "string",
+        "description": "Take-profit trigger price"
+      },
+      {
+        "name": "tpStopType",
+        "type": "string",
+        "description": "LAST_PRICE or MARK_PRICE"
+      },
+      {
+        "name": "slPrice",
+        "type": "string",
+        "description": "Stop-loss trigger price"
+      },
+      {
+        "name": "slStopType",
+        "type": "string",
+        "description": "LAST_PRICE or MARK_PRICE"
+      },
+      {
+        "name": "tpOrderType",
+        "type": "string",
+        "description": "LIMIT or MARKET; default market"
+      },
+      {
+        "name": "tpOrderPrice",
+        "type": "string",
+        "description": "Take-profit order price"
+      },
+      {
+        "name": "slOrderType",
+        "type": "string",
+        "description": "LIMIT or MARKET; default market"
+      },
+      {
+        "name": "slOrderPrice",
+        "type": "string",
+        "description": "Stop-loss order price"
+      },
+      {
+        "name": "tpQty",
+        "type": "string",
+        "description": "Take-profit order quantity (base coin). At least one of tpQty or slQty is required."
+      },
+      {
+        "name": "slQty",
+        "type": "string",
+        "description": "Stop-loss order quantity (base coin). At least one of tpQty or slQty is required."
+      }
+    ],
+    "request_example": {
+      "symbol": "BTCUSDT"
+    },
+    "response_example": [
+      {
+        "id": "123",
+        "positionId": "12345678",
+        "symbol": "BTCUSDT",
+        "base": "BTC",
+        "quote": "USDT",
+        "tpPrice": "50000",
+        "tpStopType": "LAST_PRICE",
+        "slPrice": "70000",
+        "slStopType": "LAST_PRICE",
+        "tpOrderType": "LIMIT",
+        "tpOrderPrice": "50000",
+        "slOrderType": "LIMIT",
+        "slOrderPrice": "70000",
+        "tpQty": "0.01",
+        "slQty": "0.01"
+      }
+    ],
+    "notes": "side and positionMode are documented as integers but enum mapping is not provided here; engine queries by positionId instead of guessing values."
+  },
+  "get_history_tp_sl_order": {
+    "name": "get_history_tp_sl_order",
+    "source": "https://www.bitunix.com/api-docs/futures/tp_sl/get_history_tp_sl_order.html",
+    "method": "GET",
+    "path": "/api/v1/futures/tpsl/get_history_orders",
+    "public": false,
+    "rate_per_second": 10,
+    "description": "Get history TP/SL orders",
+    "parameters": [
+      {
+        "name": "symbol",
+        "type": "string",
+        "required": false,
+        "required_literal": "false",
+        "description": "Trading pair"
+      },
+      {
+        "name": "side",
+        "type": "int32",
+        "required": false,
+        "required_literal": "false",
+        "description": "Order side"
+      },
+      {
+        "name": "positionMode",
+        "type": "int32",
+        "required": false,
+        "required_literal": "false",
+        "description": "Order position mode"
+      },
+      {
+        "name": "startTime",
+        "type": "int64",
+        "required": false,
+        "required_literal": "false",
+        "description": "Start timestamp. Unix timestamp in milliseconds, e.g. 1597026383085"
+      },
+      {
+        "name": "endTime",
+        "type": "int64",
+        "required": false,
+        "required_literal": "false",
+        "description": "Start timestamp (source wording). Unix timestamp in milliseconds, e.g. 1597026683085"
+      },
+      {
+        "name": "skip",
+        "type": "int64",
+        "required": false,
+        "required_literal": "false",
+        "description": "Skip order count; default: 0"
+      },
+      {
+        "name": "limit",
+        "type": "int64",
+        "required": false,
+        "required_literal": "false",
+        "description": "Number of queries: maximum 100, default 10"
+      }
+    ],
+    "response_parameters": [
+      {
+        "name": "orderList",
+        "type": "list",
+        "description": "TP/SL order list"
+      },
+      {
+        "name": ">id",
+        "type": "string",
+        "description": "Order id"
+      },
+      {
+        "name": ">positionId",
+        "type": "string",
+        "description": "Position id"
+      },
+      {
+        "name": ">symbol",
+        "type": "string",
+        "description": "Coin pair"
+      },
+      {
+        "name": ">base",
+        "type": "string",
+        "description": "Base"
+      },
+      {
+        "name": ">quote",
+        "type": "string",
+        "description": "Quote"
+      },
+      {
+        "name": ">tpPrice",
+        "type": "string",
+        "description": "Take-profit trigger price"
+      },
+      {
+        "name": ">tpStopType",
+        "type": "string",
+        "description": "LAST_PRICE or MARK_PRICE"
+      },
+      {
+        "name": ">slPrice",
+        "type": "string",
+        "description": "Stop-loss trigger price"
+      },
+      {
+        "name": ">slStopType",
+        "type": "string",
+        "description": "LAST_PRICE or MARK_PRICE"
+      },
+      {
+        "name": ">tpOrderType",
+        "type": "string",
+        "description": "LIMIT or MARKET; default market"
+      },
+      {
+        "name": ">tpOrderPrice",
+        "type": "string",
+        "description": "Take-profit order price"
+      },
+      {
+        "name": ">slOrderType",
+        "type": "string",
+        "description": "LIMIT or MARKET; default market"
+      },
+      {
+        "name": ">slOrderPrice",
+        "type": "string",
+        "description": "Stop-loss order price"
+      },
+      {
+        "name": ">tpQty",
+        "type": "string",
+        "description": "Take-profit order quantity (base coin). At least one of tpQty or slQty is required."
+      },
+      {
+        "name": ">slQty",
+        "type": "string",
+        "description": "Stop-loss order quantity (base coin). At least one of tpQty or slQty is required."
+      },
+      {
+        "name": ">status",
+        "type": "string",
+        "description": "TP/SL order status"
+      },
+      {
+        "name": ">ctime",
+        "type": "int64",
+        "description": "Create timestamp"
+      },
+      {
+        "name": ">triggerTime",
+        "type": "int64",
+        "description": "Trigger timestamp"
+      },
+      {
+        "name": "total",
+        "type": "int64",
+        "description": "Total"
+      }
+    ],
+    "request_example": {
+      "symbol": "BTCUSDT"
+    },
+    "response_example": [
+      {
+        "positionId": "12345678",
+        "symbol": "BTCUSDT",
+        "qty": "0.5",
+        "entryValue": "30000",
+        "side": "LONG",
+        "positionMode": "HEDGE",
+        "marginMode": "ISOLATION",
+        "leverage": 100,
+        "fee": "0.1",
+        "funding": "-0.2",
+        "realizedPNL": "102.9",
+        "margin": "300",
+        "unrealizedPNL": "1.5",
+        "liqPrice": "22209",
+        "marginRate": "0.01",
+        "ctime": 1691382137448,
+        "mtime": 1691382137448
+      }
+    ],
+    "notes": "Response example is a positions array, inconsistent with its orderList/total response table. Adapter preserves raw response; no lossy guessed conversion."
+  }
+}

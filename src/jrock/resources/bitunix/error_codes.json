@@ -1,0 +1,306 @@
+{
+  "0": {
+    "description": "Success",
+    "http_status": 200
+  },
+  "403": {
+    "description": "This API key does not support this operation",
+    "http_status": 200
+  },
+  "10001": {
+    "description": "Network Error",
+    "http_status": 200
+  },
+  "10002": {
+    "description": "Parameter Error",
+    "http_status": 200
+  },
+  "10003": {
+    "description": "api-key can't be empty",
+    "http_status": 200
+  },
+  "10004": {
+    "description": "The current ip is not in the apikey ip whitelist",
+    "http_status": 200
+  },
+  "10005": {
+    "description": "Too many requests, please try again later",
+    "http_status": 200
+  },
+  "10006": {
+    "description": "Request too frequently",
+    "http_status": 200
+  },
+  "10007": {
+    "description": "Sign signature error",
+    "http_status": 200
+  },
+  "10008": {
+    "description": "{value} does not comply with the rule, optional [correctValue]",
+    "http_status": 200
+  },
+  "20001": {
+    "description": "Market not exists",
+    "http_status": 200
+  },
+  "20002": {
+    "description": "The current positions amount has exceeded the maximum open limit, please adjust the risk limit",
+    "http_status": 200
+  },
+  "20003": {
+    "description": "Insufficient balance",
+    "http_status": 200
+  },
+  "20004": {
+    "description": "Insufficient Trader",
+    "http_status": 200
+  },
+  "20005": {
+    "description": "Invalid leverage",
+    "http_status": 200
+  },
+  "20006": {
+    "description": "You can't change leverage or margin mode as there are open orders",
+    "http_status": 200
+  },
+  "20007": {
+    "description": "Order not found, please try it later",
+    "http_status": 200
+  },
+  "20008": {
+    "description": "Insufficient amount",
+    "http_status": 200
+  },
+  "20009": {
+    "description": "Position exists, so positions mode cannot be updated",
+    "http_status": 200
+  },
+  "20010": {
+    "description": "Activation failed, the available balance in the futures account does not meet the conditions for activation of the coupon",
+    "http_status": 200
+  },
+  "20011": {
+    "description": "Account not allowed to trade",
+    "http_status": 200
+  },
+  "20012": {
+    "description": "This futures does not allow trading",
+    "http_status": 200
+  },
+  "20013": {
+    "description": "Function disabled due tp pending account deletion request",
+    "http_status": 200
+  },
+  "20014": {
+    "description": "Account deleted",
+    "http_status": 200
+  },
+  "20015": {
+    "description": "This futures is not supported",
+    "http_status": 200
+  },
+  "20016": {
+    "description": "Batch order exceeded the max size",
+    "http_status": 200
+  },
+  "30001": {
+    "description": "Failed to order. Please adjust the order price or the leverage as the order price dealt may immediately liquidate.",
+    "http_status": 200
+  },
+  "30002": {
+    "description": "Price below liquidated price",
+    "http_status": 200
+  },
+  "30003": {
+    "description": "Price above liquidated price",
+    "http_status": 200
+  },
+  "30004": {
+    "description": "Position not exist",
+    "http_status": 200
+  },
+  "30005": {
+    "description": "The trigger price is closer to the current price and may be triggered immediately",
+    "http_status": 200
+  },
+  "30006": {
+    "description": "Please select TP or SL",
+    "http_status": 200
+  },
+  "30007": {
+    "description": "TP trigger price is greater than average entry price",
+    "http_status": 200
+  },
+  "30008": {
+    "description": "TP trigger price is less than average entry price",
+    "http_status": 200
+  },
+  "30009": {
+    "description": "SL trigger price is less than average entry price",
+    "http_status": 200
+  },
+  "30010": {
+    "description": "SL trigger price is greater than average entry price",
+    "http_status": 200
+  },
+  "30011": {
+    "description": "Abnormal order status",
+    "http_status": 200
+  },
+  "30012": {
+    "description": "Already added to favorite",
+    "http_status": 200
+  },
+  "30013": {
+    "description": "Exceeded the maximum order quantity",
+    "http_status": 200
+  },
+  "30014": {
+    "description": "Max Buy Order Price",
+    "http_status": 200
+  },
+  "30015": {
+    "description": "Mini Sell Order Price",
+    "http_status": 200
+  },
+  "30016": {
+    "description": "The qty should be larger than",
+    "http_status": 200
+  },
+  "30017": {
+    "description": "The qty cannot be less than the minimum qty",
+    "http_status": 200
+  },
+  "30018": {
+    "description": "Order failed. No position opened. Cancel [Reduce-only] settings and retry later",
+    "http_status": 200
+  },
+  "30019": {
+    "description": "Order failed. A [Reduce-only] order can not be in the same direction as the open position",
+    "http_status": 200
+  },
+  "30020": {
+    "description": "Trigger price for TP should be higher than mark price:",
+    "http_status": 200
+  },
+  "30021": {
+    "description": "Trigger price for TP should be lower than mark price:",
+    "http_status": 200
+  },
+  "30022": {
+    "description": "Trigger price for SL should be higher than mark price:",
+    "http_status": 200
+  },
+  "30023": {
+    "description": "Trigger price fo SL should be lower than mark price:",
+    "http_status": 200
+  },
+  "30024": {
+    "description": "Trigger price for SL should be lower than liq price:",
+    "http_status": 200
+  },
+  "30025": {
+    "description": "Trigger price for SL should be higher than liq price:",
+    "http_status": 200
+  },
+  "30026": {
+    "description": "TP price must be greater than last price:",
+    "http_status": 200
+  },
+  "30027": {
+    "description": "TP price must be greater than mark price:",
+    "http_status": 200
+  },
+  "30028": {
+    "description": "SL price must be less than last price:",
+    "http_status": 200
+  },
+  "30029": {
+    "description": "SL price must be less than mark price:",
+    "http_status": 200
+  },
+  "30030": {
+    "description": "SL price must be greater than last price:",
+    "http_status": 200
+  },
+  "30031": {
+    "description": "SL price must be greater than mark price:",
+    "http_status": 200
+  },
+  "30032": {
+    "description": "TP price must be less than last price:",
+    "http_status": 200
+  },
+  "30033": {
+    "description": "TP price must be less than mark price:",
+    "http_status": 200
+  },
+  "30034": {
+    "description": "TP price must be less than mark price:",
+    "http_status": 200
+  },
+  "30035": {
+    "description": "SL price must be greater than trigger price:",
+    "http_status": 200
+  },
+  "30036": {
+    "description": "TP price must be greater than trigger price:",
+    "http_status": 200
+  },
+  "30037": {
+    "description": "TP price must be greater than trigger price:",
+    "http_status": 200
+  },
+  "30038": {
+    "description": "TP/SL amount must be less than the size of the position.",
+    "http_status": 200
+  },
+  "30039": {
+    "description": "The order qty can't be greater than the max order qty:",
+    "http_status": 200
+  },
+  "30040": {
+    "description": "Futures trading is prohibited, please contact customer service.",
+    "http_status": 200
+  },
+  "30041": {
+    "description": "Trigger price must be greater than 0",
+    "http_status": 200
+  },
+  "30042": {
+    "description": "Client ID duplicate",
+    "http_status": 200
+  },
+  "40001": {
+    "description": "Please cancel open orders and close all positions before canceling lead trading",
+    "http_status": 200
+  },
+  "40002": {
+    "description": "Lead amount hast to be over the limits",
+    "http_status": 200
+  },
+  "40003": {
+    "description": "Lead order amount exceeds the limits.",
+    "http_status": 200
+  },
+  "40004": {
+    "description": "Please do not repeat the operation",
+    "http_status": 200
+  },
+  "40005": {
+    "description": "Action is not available for the current user type.",
+    "http_status": 200
+  },
+  "40006": {
+    "description": "Sub-account reaches the limit.",
+    "http_status": 200
+  },
+  "40007": {
+    "description": "Share settlement is being processed,lease try again later",
+    "http_status": 200
+  },
+  "40008": {
+    "description": "After the transfer, the account balance will be less than the order amount, please enter again.",
+    "http_status": 200
+  }
+}

@@ -1,0 +1,467 @@
+{
+  "retrieved": "2026-10-01",
+  "rest_count": 35,
+  "documents": [
+    {
+      "id": "get_tickers",
+      "url": "https://www.bitunix.com/api-docs/futures/market/get_tickers.html",
+      "file": "get_tickers.md",
+      "sha256": "f9ab6f315566316c9d1044a5da769ebff86c1ea811ad05f67c2815854ba0e9e5",
+      "status": "table-transcription",
+      "request_parameters": 1,
+      "response_parameters": 9
+    },
+    {
+      "id": "get_depth",
+      "url": "https://www.bitunix.com/api-docs/futures/market/get_depth.html",
+      "file": "get_depth.md",
+      "sha256": "65175a9f51862658155e9928a84c2231655f4b2e75a96e01413e92043a31f7c7",
+      "status": "table-transcription",
+      "request_parameters": 2,
+      "response_parameters": 4
+    },
+    {
+      "id": "get_funding_rate",
+      "url": "https://www.bitunix.com/api-docs/futures/market/get_funding_rate.html",
+      "file": "get_funding_rate.md",
+      "sha256": "d191567e14f4cdb164c1a94e84148dc7ddb38f564ca7e0132799e1944e62117e",
+      "status": "table-transcription",
+      "request_parameters": 1,
+      "response_parameters": 9
+    },
+    {
+      "id": "get_funding_rate_batch",
+      "url": "https://www.bitunix.com/api-docs/futures/market/get_funding_rate_batch.html",
+      "file": "get_funding_rate_batch.md",
+      "sha256": "3271e74f510681b5762a89b6169c7eba12f862392b58413d694082afb47ac4e7",
+      "status": "table-transcription",
+      "request_parameters": 0,
+      "response_parameters": 9
+    },
+    {
+      "id": "get_funding_rate_history",
+      "url": "https://www.bitunix.com/api-docs/futures/market/get_funding_rate_history.html",
+      "file": "get_funding_rate_history.md",
+      "sha256": "2a3690db5fc73342b3c34dda8b65f9f92a8b7f3e71d583da129ca6698345478e",
+      "status": "table-transcription",
+      "request_parameters": 4,
+      "response_parameters": 3
+    },
+    {
+      "id": "get_kline",
+      "url": "https://www.bitunix.com/api-docs/futures/market/get_kline.html",
+      "file": "get_kline.md",
+      "sha256": "8a5185d08a67b895c95af434cc2deb52dc72083295b2677df4e80e26b2999c95",
+      "status": "table-transcription",
+      "request_parameters": 6,
+      "response_parameters": 6
+    },
+    {
+      "id": "get_trading_pairs",
+      "url": "https://www.bitunix.com/api-docs/futures/market/get_trading_pairs.html",
+      "file": "get_trading_pairs.md",
+      "sha256": "18cf8822159ee8024e278ff1c119b3ca9892f8d1674e2e1f9449e1d1e473e6d0",
+      "status": "table-transcription",
+      "request_parameters": 1,
+      "response_parameters": 21
+    },
+    {
+      "id": "adjust_position_margin",
+      "url": "https://www.bitunix.com/api-docs/futures/account/adjust_position_margin.html",
+      "file": "adjust_position_margin.md",
+      "sha256": "cacd5a3ce2bf582258ffc6f7930aa9bfc2a0a08ba55750479e36ad3ca2220549",
+      "status": "table-transcription",
+      "request_parameters": 5,
+      "response_parameters": 1
+    },
+    {
+      "id": "change_leverage",
+      "url": "https://www.bitunix.com/api-docs/futures/account/change_leverage.html",
+      "file": "change_leverage.md",
+      "sha256": "31c331ef0176c848e539bbc92748d127ae76ae9da4b47daf7984bcdcf81c6a55",
+      "status": "table-transcription",
+      "request_parameters": 3,
+      "response_parameters": 3
+    },
+    {
+      "id": "change_margin_mode",
+      "url": "https://www.bitunix.com/api-docs/futures/account/change_margin_mode.html",
+      "file": "change_margin_mode.md",
+      "sha256": "4ac8f2fcfcb6a7071b940e145f3e6b54e813ee5efb7a8fc3705e7132ce3288a5",
+      "status": "table-transcription",
+      "request_parameters": 3,
+      "response_parameters": 3
+    },
+    {
+      "id": "change_position_mode",
+      "url": "https://www.bitunix.com/api-docs/futures/account/change_position_mode.html",
+      "file": "change_position_mode.md",
+      "sha256": "ab7ce9001a44f8cbfe5c818572542aa2434f8d6a12934033726796b6f90f9260",
+      "status": "table-transcription",
+      "request_parameters": 1,
+      "response_parameters": 1
+    },
+    {
+      "id": "get_leverage_and_margin_mode",
+      "url": "https://www.bitunix.com/api-docs/futures/account/get_leverage_and_margin_mode.html",
+      "file": "get_leverage_and_margin_mode.md",
+      "sha256": "a5a2426d16cc84a4ee97450a0cae355b0c1d47ec92ad926a7711fecc318f5ddc",
+      "status": "table-transcription",
+      "request_parameters": 2,
+      "response_parameters": 4
+    },
+    {
+      "id": "get_single_account",
+      "url": "https://www.bitunix.com/api-docs/futures/account/get_single_account.html",
+      "file": "get_single_account.md",
+      "sha256": "446ff293ab2037cd00d3c7b2d0ad3c6e241c544fe3b9d5089a4bf154ca00acab",
+      "status": "table-transcription",
+      "request_parameters": 1,
+      "response_parameters": 9
+    },
+    {
+      "id": "asset_query",
+      "url": "https://www.bitunix.com/api-docs/futures/copyTrading/asset/asset_query.html",
+      "file": "asset_query.md",
+      "sha256": "880d13d7ec3b5f9bb8b7f3cd6c5a5bf7b4c357d8243e6ef6778ccbb58eccfe5e",
+      "status": "table-transcription",
+      "request_parameters": 0,
+      "response_parameters": 2
+    },
+    {
+      "id": "get_pending_positions",
+      "url": "https://www.bitunix.com/api-docs/futures/position/get_pending_positions.html",
+      "file": "get_pending_positions.md",
+      "sha256": "c313071dd4097348df89a25c3767b9c5bf646c801f9a07618a4dbd99fd855dcb",
+      "status": "table-transcription",
+      "request_parameters": 4,
+      "response_parameters": 19
+    },
+    {
+      "id": "get_history_positions",
+      "url": "https://www.bitunix.com/api-docs/futures/position/get_history_positions.html",
+      "file": "get_history_positions.md",
+      "sha256": "423f2876521fec79214d7f56f9f1a2c5e6b0b8472b2e978c31d90a486c9db9c9",
+      "status": "table-transcription",
+      "request_parameters": 7,
+      "response_parameters": 19
+    },
+    {
+      "id": "get_position_tiers",
+      "url": "https://www.bitunix.com/api-docs/futures/position/get_position_tiers.html",
+      "file": "get_position_tiers.md",
+      "sha256": "c2770f473737ac81976356681a23a785514f31c2f73d4145e0c61314e177b35d",
+      "status": "table-transcription",
+      "request_parameters": 1,
+      "response_parameters": 6
+    },
+    {
+      "id": "place_order",
+      "url": "https://www.bitunix.com/api-docs/futures/trade/place_order.html",
+      "file": "place_order.md",
+      "sha256": "2be8449ed2b65a1739c1cce11cbbb735ced00f0e9dc5ec4671b2af6c78a4249b",
+      "status": "table-transcription",
+      "request_parameters": 18,
+      "response_parameters": 2
+    },
+    {
+      "id": "batch_order",
+      "url": "https://www.bitunix.com/api-docs/futures/trade/batch_order.html",
+      "file": "batch_order.md",
+      "sha256": "4ab4b3c681a4ac948e43bbec691b25bbbdfe7681878f6a9bfa5381e458ee6fbd",
+      "status": "table-transcription",
+      "request_parameters": 19,
+      "response_parameters": 7
+    },
+    {
+      "id": "cancel_orders",
+      "url": "https://www.bitunix.com/api-docs/futures/trade/cancel_orders.html",
+      "file": "cancel_orders.md",
+      "sha256": "e596fdfd6843a7b857a120bbde1cf70e6f08e3d8b5cacdec054272566f666284",
+      "status": "table-transcription",
+      "request_parameters": 4,
+      "response_parameters": 8
+    },
+    {
+      "id": "cancel_all_orders",
+      "url": "https://www.bitunix.com/api-docs/futures/trade/cancel_all_orders.html",
+      "file": "cancel_all_orders.md",
+      "sha256": "09511023982ac374c8f0c1717c5bd7cc1b8b86641ab0f8def6645b3a2813420f",
+      "status": "table-transcription",
+      "request_parameters": 1,
+      "response_parameters": 8
+    },
+    {
+      "id": "close_all_position",
+      "url": "https://www.bitunix.com/api-docs/futures/trade/close_all_position.html",
+      "file": "close_all_position.md",
+      "sha256": "b4a7a4afb52fae3d0169f226354bca3ef12f87cbcea21104cbadb50fa647f1e1",
+      "status": "table-transcription",
+      "request_parameters": 1,
+      "response_parameters": 0
+    },
+    {
+      "id": "flash_close_position",
+      "url": "https://www.bitunix.com/api-docs/futures/trade/flash_close_position.html",
+      "file": "flash_close_position.md",
+      "sha256": "d922633622e5883700c0aabb215b77f628b600c671e87a0c01cb6414d359a7dd",
+      "status": "table-transcription",
+      "request_parameters": 1,
+      "response_parameters": 1
+    },
+    {
+      "id": "modify_order",
+      "url": "https://www.bitunix.com/api-docs/futures/trade/modify_order.html",
+      "file": "modify_order.md",
+      "sha256": "ccbe92712848ffb69bf6c988755ca8b3c0c2d963f2155e6837279aa345dfb458",
+      "status": "table-transcription",
+      "request_parameters": 12,
+      "response_parameters": 2
+    },
+    {
+      "id": "get_order_detail",
+      "url": "https://www.bitunix.com/api-docs/futures/trade/get_order_detail.html",
+      "file": "get_order_detail.md",
+      "sha256": "ea362a724245284bdbb9c6f8e75eafbb72cf5d4d258c2aea8c9db13eab4c21ac",
+      "status": "table-transcription",
+      "request_parameters": 2,
+      "response_parameters": 26
+    },
+    {
+      "id": "get_pending_orders",
+      "url": "https://www.bitunix.com/api-docs/futures/trade/get_pending_orders.html",
+      "file": "get_pending_orders.md",
+      "sha256": "04247f37afead9a906c14d441e3b41d41ea3320768991df920ea8ec546e5a090",
+      "status": "table-transcription",
+      "request_parameters": 8,
+      "response_parameters": 28
+    },
+    {
+      "id": "get_history_orders",
+      "url": "https://www.bitunix.com/api-docs/futures/trade/get_history_orders.html",
+      "file": "get_history_orders.md",
+      "sha256": "4b70e520fb54fc76b86247ef360b58a252b7520cdaecccc7c6d4db0397abc608",
+      "status": "table-transcription",
+      "request_parameters": 11,
+      "response_parameters": 29
+    },
+    {
+      "id": "get_history_trades",
+      "url": "https://www.bitunix.com/api-docs/futures/trade/get_history_trades.html",
+      "file": "get_history_trades.md",
+      "sha256": "06189663a9c0cd7bd2fd706691fb4b72e044d22ba07227c0c96f3e23dc2b2471",
+      "status": "table-transcription",
+      "request_parameters": 7,
+      "response_parameters": 19
+    },
+    {
+      "id": "place_position_tp_sl_order",
+      "url": "https://www.bitunix.com/api-docs/futures/tp_sl/place_position_tp_sl_order.html",
+      "file": "place_position_tp_sl_order.md",
+      "sha256": "2d4e092985230adc9b790bf0422ac7c1ccbe004c5b06712d138fb41ff07b6354",
+      "status": "table-transcription",
+      "request_parameters": 6,
+      "response_parameters": 1
+    },
+    {
+      "id": "modify_position_tp_sl_order",
+      "url": "https://www.bitunix.com/api-docs/futures/tp_sl/modify_position_tp_sl_order.html",
+      "file": "modify_position_tp_sl_order.md",
+      "sha256": "e1cff4768af8bbf603d47634606fc17531f874e96d82214e7a89cc56f9e536c4",
+      "status": "table-transcription",
+      "request_parameters": 6,
+      "response_parameters": 1
+    },
+    {
+      "id": "place_tp_sl_order",
+      "url": "https://www.bitunix.com/api-docs/futures/tp_sl/place_tp_sl_order.html",
+      "file": "place_tp_sl_order.md",
+      "sha256": "1164a9c8bbce973a48f29d3229913d0e4db1f4fe9a8610c42cdd9a7ec0bf5375",
+      "status": "table-transcription",
+      "request_parameters": 12,
+      "response_parameters": 1
+    },
+    {
+      "id": "modify_tp_sl_order",
+      "url": "https://www.bitunix.com/api-docs/futures/tp_sl/modify_tp_sl_order.html",
+      "file": "modify_tp_sl_order.md",
+      "sha256": "6a51f653667baedc898f457a0d5ffb959e95ee3581184025651b9bc5df4139be",
+      "status": "table-transcription",
+      "request_parameters": 11,
+      "response_parameters": 1
+    },
+    {
+      "id": "cancel_tp_sl_order",
+      "url": "https://www.bitunix.com/api-docs/futures/tp_sl/cancel_tp_sl_order.html",
+      "file": "cancel_tp_sl_order.md",
+      "sha256": "4c4f587fd67026243abc61572024fba1c74a52360a88ecb0e9318ca8cfb18c06",
+      "status": "table-transcription",
+      "request_parameters": 2,
+      "response_parameters": 1
+    },
+    {
+      "id": "get_pending_tp_sl_order",
+      "url": "https://www.bitunix.com/api-docs/futures/tp_sl/get_pending_tp_sl_order.html",
+      "file": "get_pending_tp_sl_order.md",
+      "sha256": "32bd0cc9678504971e334da171b6f032bcc54f385340bc36a04dca2f44735b7d",
+      "status": "table-transcription",
+      "request_parameters": 6,
+      "response_parameters": 15
+    },
+    {
+      "id": "get_history_tp_sl_order",
+      "url": "https://www.bitunix.com/api-docs/futures/tp_sl/get_history_tp_sl_order.html",
+      "file": "get_history_tp_sl_order.md",
+      "sha256": "25b324fd9e6f54879b74eedc24f7115ada450f99bd53d880f0bcc9b8c5e39ffb",
+      "status": "table-transcription",
+      "request_parameters": 7,
+      "response_parameters": 20
+    },
+    {
+      "id": "ws_balance",
+      "url": "https://www.bitunix.com/api-docs/futures/websocket/private/Balance%20Channel.html",
+      "file": "ws_balance.md",
+      "sha256": "786a71327930dc8b1eb0f0836f4078a9041e3c3d49a5285cff038f60e2f558b8",
+      "status": "table-transcription",
+      "request_parameters": 0,
+      "push_parameters": 12
+    },
+    {
+      "id": "ws_position",
+      "url": "https://www.bitunix.com/api-docs/futures/websocket/private/Position%20Channel.html",
+      "file": "ws_position.md",
+      "sha256": "32670b19cd9214753c6cb9fd5f9d653a44a0fabd033a67788e1b286f2bb30d2e",
+      "status": "table-transcription",
+      "request_parameters": 0,
+      "push_parameters": 17
+    },
+    {
+      "id": "ws_order",
+      "url": "https://www.bitunix.com/api-docs/futures/websocket/private/Order%20Channel.html",
+      "file": "ws_order.md",
+      "sha256": "7d389e9aff77bf0e88104bbeae05f151ffd317b893e79191954748ec981729fa",
+      "status": "table-transcription",
+      "request_parameters": 0,
+      "push_parameters": 29
+    },
+    {
+      "id": "ws_tpsl",
+      "url": "https://www.bitunix.com/api-docs/futures/websocket/private/Tp%20Sl%20Channel.html",
+      "file": "ws_tpsl.md",
+      "sha256": "d213490f5ade4dce44b509fa6fa1d9ef9ffb3818918dfff18f99820ea279846b",
+      "status": "table-transcription",
+      "request_parameters": 0,
+      "push_parameters": 23
+    },
+    {
+      "id": "ws_depth",
+      "url": "https://www.bitunix.com/api-docs/futures/websocket/public/depth%20channel.html",
+      "file": "ws_depth.md",
+      "sha256": "7baa4b0bf35ac074c5ec4853d00f77e2508e44b821313e9e14686dcbb1e20d05",
+      "status": "table-transcription",
+      "request_parameters": 4,
+      "push_parameters": 6
+    },
+    {
+      "id": "ws_kline",
+      "url": "https://www.bitunix.com/api-docs/futures/websocket/public/kline%20channel.html",
+      "file": "ws_kline.md",
+      "sha256": "c9e411bce8924dcd082d8c75522eaa5d5e1d9c013ea43b776a2f7b6f10be8d76",
+      "status": "table-transcription",
+      "request_parameters": 4,
+      "push_parameters": 10
+    },
+    {
+      "id": "ws_price",
+      "url": "https://www.bitunix.com/api-docs/futures/websocket/public/MarketPrice%20Channel.html",
+      "file": "ws_price.md",
+      "sha256": "91e519cb86cc4cc7ce58e5f806cf5233c35094e9c6e8ee0119c5e932ad437279",
+      "status": "table-transcription",
+      "request_parameters": 4,
+      "push_parameters": 9
+    },
+    {
+      "id": "ws_ticker",
+      "url": "https://www.bitunix.com/api-docs/futures/websocket/public/Ticker%20Channel.html",
+      "file": "ws_ticker.md",
+      "sha256": "dbb231a2022220ec8fa18a929ae604687f1731759fbc91e22e190d7eaa5d4bac",
+      "status": "table-transcription",
+      "request_parameters": 4,
+      "push_parameters": 12
+    },
+    {
+      "id": "ws_tickers",
+      "url": "https://www.bitunix.com/api-docs/futures/websocket/public/Tickers%20Channel.html",
+      "file": "ws_tickers.md",
+      "sha256": "eee14eb2b4939d6cd2880793c2a6727ed23e397f7c148c25d20fb7f126bc3b7e",
+      "status": "table-transcription",
+      "request_parameters": 4,
+      "push_parameters": 15
+    },
+    {
+      "id": "ws_trade",
+      "url": "https://www.bitunix.com/api-docs/futures/websocket/public/Trade%20Channel.html",
+      "file": "ws_trade.md",
+      "sha256": "c1412f3e84ea4376956f4ee2c9dfb7044c7075f51e7053734d0d32d6764f7821",
+      "status": "table-transcription",
+      "request_parameters": 4,
+      "push_parameters": 8
+    },
+    {
+      "id": "websocket_prepare",
+      "url": "https://www.bitunix.com/api-docs/futures/websocket/prepare/WebSocket.html",
+      "file": "websocket_prepare.md",
+      "sha256": "32d36c3916e7052056f3a0e058fea2660c4e63dd0656c2d07e4a3af26e9ff824",
+      "status": "content-transcription"
+    },
+    {
+      "id": "signature",
+      "url": "https://www.bitunix.com/api-docs/futures/common/sign.html",
+      "file": "signature.md",
+      "sha256": "33d83ad6341a25a8d77c05fbceca225ae05fe5fb99aee42c0172cdd5e6878dec",
+      "status": "content-transcription"
+    },
+    {
+      "id": "change_log",
+      "url": "https://www.bitunix.com/api-docs/futures/log/change_log.html",
+      "file": "change_log.md",
+      "sha256": "e996e88cc693ff23ce19af9be9811ab2b7d2b736b637311ec2d265a0d513ca38",
+      "status": "content-transcription"
+    },
+    {
+      "id": "error_code",
+      "url": "https://www.bitunix.com/api-docs/futures/ErrorCode/error_code.html",
+      "file": "error_code.md",
+      "sha256": "8d7f5ee5a347dd23acef594dfd9a06d95ce41895f500df977b11807d64462b02",
+      "status": "content-transcription"
+    },
+    {
+      "id": "liquidation",
+      "url": "https://support.bitunix.com/hc/en-us/articles/32152530856601-Bitunix-Futures-Liquidation-Mechanism-and-Tiered-Risk-Limit",
+      "file": "liquidation.md",
+      "sha256": "bbb8a6ebbd90f9f286f406c8de896ae5942b496b03f3c5a4a179adc65660bb16",
+      "status": "content-transcription"
+    },
+    {
+      "id": "four_tpsl_methods",
+      "url": "https://www.bitunix.com/uk-ua/hub/helpcenter/article/bitunix-futures-position-a-guide-to-four-take-profit-and-stop-loss-methods-web?id=290",
+      "file": "four_tpsl_methods.md",
+      "sha256": "5da351e502eec4ffa88af298684768da46cd1da5db3a8b8da0ce5d14c2bf2307",
+      "status": "content-transcription"
+    },
+    {
+      "id": "order_units",
+      "url": "https://www.bitunix.com/hub/helpcenter/article/explanation-of-the-order-units-in-futures-trading?id=170",
+      "file": "order_units.md",
+      "sha256": "bc3e356dfac773d12aa17d876355838d041c40cba6b964ee3b3dc7193ac0b0c3",
+      "status": "content-transcription"
+    }
+  ],
+  "websocket_channels": 10,
+  "unavailable_supplied_pages": [],
+  "example_repositories": [
+    "https://github.com/qezawat-a/open-api/tree/main/Demo",
+    "https://github.com/BitunixOfficial/open-api/tree/main/Demo"
+  ],
+  "transcription_note": "Endpoint/channel tables retained. Navigation omitted; descriptions transcribed; repetitive examples normalized. URLs and hashes retained. Not a guarantee of future documentation/API parity."
+}
