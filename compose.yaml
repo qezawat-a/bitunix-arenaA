@@ -1,0 +1,18 @@
+services:
+  jrock:
+    build: .
+    env_file: .env
+    environment:
+      DATA_DIR: /app/data
+      WORKSPACE_DIR: /app/workspace
+    volumes:
+      - jrock_data:/app/data
+      - jrock_workspace:/app/workspace
+    restart: "no"  # Intentional: inspect exchange before restarting; live is never auto-authorized.
+    init: true
+    cap_drop: [ALL]
+    security_opt:
+      - no-new-privileges:true
+volumes:
+  jrock_data:
+  jrock_workspace:
